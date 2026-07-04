@@ -18,6 +18,18 @@
       "points": 15
     },
     {
+      "id": "lesson-2",
+      "title": {
+        "en": "Flip-Flop Types",
+        "ar": "أنواع الـ Flip-Flop"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Flip-Flop Types\n\nThere are several types of flip-flops, each with its own characteristics and applications:\n\n## SR Flip-Flop\n\nThe SR (Set-Reset) flip-flop has two inputs:\n- **S (Set)**: Sets the output to 1\n- **R (Reset)**: Resets the output to 0\n\n## D Flip-Flop\n\nThe D (Data) flip-flop has a single input:\n- **D (Data)**: Determines the output based on the current input.\n\n## JK Flip-Flop\n\nThe JK flip-flop has two inputs:\n- **J (Set)**: Sets the output to 1\n- **K (Reset)**: Resets the output to 0\n\n## T Flip-Flop\n\nThe T (Toggle) flip-flop has a single input:\n- **T (Toggle)**: Toggles the output state on each clock pulse."
+      },
+      "points": 15
+    },
+    {
       "id": "quiz-1",
       "title": {
         "en": "Sequential Circuits Quiz",
