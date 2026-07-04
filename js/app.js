@@ -73,7 +73,7 @@ const App = {
       'viewer.backToCourses': '\u2190 Back to Courses',
     },
     ar: {
-      'logo': '\u{1F4D6} ليرنانو',
+      'logo': '\u{1F4D6} Learnano',
       'nav.home': 'الرئيسية',
       'nav.courses': 'المساقات',
       'nav.track': 'التتبع',
@@ -133,7 +133,7 @@ const App = {
       'toast.lessonComplete': 'تم تحديد الدرس كمكتمل!',
       'toast.badgeEarned': 'تم ربح شارة جديدة:',
       'toast.courseComplete': 'تهانينا! لقد أكملت المساق!',
-      'footer.copyright': '\u00A9 2026 ليرنانو. جميع الحقوق محفوظة.',
+      'footer.copyright': '\u00A9 2026 Learnano. جميع الحقوق محفوظة.',
       'home.features': 'المميزات',
       'home.getStarted': 'ابدأ الآن',
       'viewer.backToCourses': '\u2190 العودة للمساقات',
@@ -175,7 +175,7 @@ const App = {
     header.className = 'site-header';
     header.innerHTML = `
       <div class="header-inner">
-        <a href="index.html" class="site-logo" data-i18n="logo">📖 Learnano</a>
+        <a href="index.html" class="site-logo"><img src="learnano_img_1.png" alt="Learnano" class="logo-img"> Learnano</a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html" data-page="home"><span data-i18n="nav.home">Home</span></a>
           <a href="courses.html" data-page="courses"><span data-i18n="nav.courses">Courses</span></a>

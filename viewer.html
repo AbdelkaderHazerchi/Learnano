@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Lesson viewer — Learnano">
   <title>Viewer — Learnano</title>
+  <link rel="icon" href="learnano_icon.ico" sizes="any">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -15,26 +16,34 @@
 
 <div id="app">
   <main class="viewer-wrapper">
-    <div class="container">
+      <div class="container viewer-layout">
 
-      <div class="viewer-breadcrumb">
-        <a href="courses.html" data-i18n="viewer.backToCourses">&#8592; Back to Courses</a>
-        / <span id="course-breadcrumb"></span>
+        <div id="viewer-ad" class="viewer-ad"></div>
+
+        <div class="viewer-main">
+
+        <div class="viewer-breadcrumb">
+          <a href="courses.html" data-i18n="viewer.backToCourses">&#8592; Back to Courses</a>
+          / <span id="course-breadcrumb"></span>
+        </div>
+
+        <h1 id="viewer-item-title" class="viewer-title"></h1>
+
+        <div id="viewer-content" class="viewer-content"><div class="loading-spinner"></div></div>
+
+        <div class="viewer-footer">
+          <div class="viewer-nav">
+            <button id="btn-prev" class="btn btn-outline btn-sm" style="display:none"></button>
+          </div>
+          <div id="viewer-action"></div>
+          <div class="viewer-nav">
+            <button id="btn-next" class="btn btn-primary btn-sm" style="display:none">Next</button>
+          </div>
+        </div>
+
       </div>
 
-      <h1 id="viewer-item-title" class="viewer-title"></h1>
-
-      <div id="viewer-content" class="viewer-content"><div class="loading-spinner"></div></div>
-
-      <div class="viewer-footer">
-        <div class="viewer-nav">
-          <button id="btn-prev" class="btn btn-outline btn-sm" style="display:none"></button>
-        </div>
-        <div id="viewer-action"></div>
-        <div class="viewer-nav">
-          <button id="btn-next" class="btn btn-primary btn-sm" style="display:none">Next</button>
-        </div>
-      </div>
+      <aside class="viewer-sidebar" id="viewer-sidebar"></aside>
 
     </div>
   </main>
@@ -47,7 +56,6 @@
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
 <script src="js/core.js"></script>
-<script src="js/data.js"></script>
 <script src="js/loader.js"></script>
 <script src="js/app.js"></script>
 <script src="js/router.js"></script>

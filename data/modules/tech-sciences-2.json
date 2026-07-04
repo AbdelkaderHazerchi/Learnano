@@ -13,8 +13,8 @@
       },
       "type": "text",
       "content": {
-        "en": "# Sequential Circuits Overview\n\nSequential circuits differ from combinational circuits in one crucial way: they have **memory**. Unlike logic gates that produce output solely based on current inputs, sequential circuits depend on both current inputs and past states.\n\n## Flip-Flops\n\nA flip-flop is a basic memory element that can store one bit of data.\n\n### SR Flip-Flop\n\nThe SR (Set-Reset) flip-flop has two inputs:\n- **S (Set)**: Sets the output to 1\n- **R (Reset)**: Resets the output to 0\n\n```\n// SR Flip-Flop truth behavior\nif (S == 1 && R == 0) Q = 1;\nif (S == 0 && R == 1) Q = 0;\nif (S == 0 && R == 0) Q = Q (no change);\nif (S == 1 && R == 1) Q = undefined (invalid);\n```\n\n## Why Sequential Matters\n\nWithout sequential circuits, computers could not remember anything — no registers, no RAM, no state machines. They are what give a processor its ability to execute a sequence of instructions.\n\n*More content coming soon.*",
-        "ar": "نظرة عامة على الدوائر المتسلسلة"
+        "en": "english",
+        "ar": "عربي"
       },
       "points": 15
     },
@@ -26,7 +26,20 @@
       },
       "type": "text",
       "content": {
-        "en": "# Flip-Flop Types\n\nThere are several types of flip-flops, each with its own characteristics and applications:\n\n## SR Flip-Flop\n\nThe SR (Set-Reset) flip-flop has two inputs:\n- **S (Set)**: Sets the output to 1\n- **R (Reset)**: Resets the output to 0\n\n## D Flip-Flop\n\nThe D (Data) flip-flop has a single input:\n- **D (Data)**: Determines the output based on the current input.\n\n## JK Flip-Flop\n\nThe JK flip-flop has two inputs:\n- **J (Set)**: Sets the output to 1\n- **K (Reset)**: Resets the output to 0\n\n## T Flip-Flop\n\nThe T (Toggle) flip-flop has a single input:\n- **T (Toggle)**: Toggles the output state on each clock pulse."
+        "en": "english",
+        "ar": "عربي"
+      },
+      "points": 15
+    },
+    {
+      "id": "lesson-3",
+      "title": {
+        "en": "Sequential Circuit Design",
+        "ar": "تصميم الدوائر المتسلسلة"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Sequential Circuit Design\n\nDesigning sequential circuits involves creating systems that can store and manipulate data over time. This requires careful consideration of clock signals, state transitions, and memory elements.\n\n## State Diagrams\n\nA state diagram is a visual representation of a sequential circuit's behavior, showing how the circuit transitions between different states based on inputs.\n\n## Timing Considerations\n\nIn sequential circuits, timing is crucial. The circuit must be designed to ensure that all components have sufficient time to settle before the next clock pulse arrives."
       },
       "points": 15
     },

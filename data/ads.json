@@ -1,0 +1,27 @@
+[
+  {
+    "title": { "en": "Master Python Programming", "ar": "إتقان برمجة بايثون" },
+    "image": "ccc.jpg",
+    "text": { "en": "Start your coding journey with interactive Python lessons and real-world projects.", "ar": "ابدأ رحلتك البرمجية مع دروس بايثون التفاعلية والمشاريع العملية." }
+  },
+  {
+    "title": { "en": "Data Structures & Algorithms", "ar": "تركيبات البيانات والخوارزميات" },
+    "image": "ccc.jpg",
+    "text": { "en": "Build a strong foundation for technical interviews and competitive programming.", "ar": "ابنِ أساسًا قويًا للمقابلات التقنية والبرمجة التنافسية." }
+  },
+  {
+    "title": { "en": "Web Development Bootcamp", "ar": "معسكر تطوير الويب" },
+    "image": "ccc.jpg",
+    "text": { "en": "Learn HTML, CSS, JavaScript and build stunning websites from scratch!", "ar": "تعلم HTML و CSS و JavaScript وابنِ مواقع مذهلة من الصفر!" }
+  },
+  {
+    "title": { "en": "Machine Learning Basics", "ar": "أساسيات تعلم الآلة" },
+    "image": "ccc.jpg",
+    "text": { "en": "Dive into AI with hands-on ML exercises, neural networks, and real datasets.", "ar": "اغوص في عالم الذكاء الاصطناعي مع تمارين عملية في تعلم الآلة." }
+  },
+  {
+    "title": { "en": "Cybersecurity Fundamentals", "ar": "أساسيات الأمن السيبراني" },
+    "image": "ccc.jpg",
+    "text": { "en": "Protect systems and networks with essential cybersecurity skills.", "ar": "احمِ الأنظمة والشبكات بمهارات الأمن السيبراني الأساسية." }
+  }
+]

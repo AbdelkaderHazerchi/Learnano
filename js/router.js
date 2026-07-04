@@ -15,6 +15,7 @@ const Router = {
       return;
     }
     this._loadCourse(this._params.course).then(() => this._loadItem(this._params.item));
+    this._loadAd();
     this._initScrollProgress();
   },
 
@@ -25,11 +26,11 @@ const Router = {
 
   async _loadCourse(courseId) {
     try {
-      const courses = await Loader.loadJSON('data/courses.json');
+      const courses = await Loader.loadJSON('https://github.com/AbdelkaderHazerchi/Learnano/blob/17d2fae6a5d9626fefad4a768c451eb313ae10a2/data/courses.json');
       const meta = courses.find(c => c.id === courseId);
       if (!meta) throw new Error(`Course "${courseId}" not found`);
 
-      this._courseData = await Loader.loadJSON(`data/modules/${meta.moduleFile}`);
+      this._courseData = await Loader.loadJSON(`https://github.com/AbdelkaderHazerchi/Learnano/blob/17d2fae6a5d9626fefad4a768c451eb313ae10a2/data/modules/${meta.moduleFile}`);
 
       const bc = document.getElementById('course-breadcrumb');
       if (bc) {
@@ -67,6 +68,7 @@ const Router = {
       this._renderQuiz(this._currentItem, content);
     }
 
+    this._renderLessonList();
     this._updateNav();
     window.scrollTo(0, 0);
   },
@@ -306,6 +308,62 @@ const Router = {
     if (prog.completed >= prog.total) {
       App.showToast(App.t('toast.courseComplete'), 'success', 6000);
     }
+  },
+
+  _renderLessonList() {
+    const sidebar = document.getElementById('viewer-sidebar');
+    if (!sidebar || !this._courseData || !this._courseData.items) return;
+    const lang = App._state.lang;
+
+    const list = this._courseData.items.map((item, i) => {
+      const title = item.title[lang] || item.title.en;
+      const active = i === this._currentIndex ? ' active' : '';
+      const icon = item.type === 'quiz' ? '\u2753' : '\uD83D\uDCD6';
+      return `<button class="sidebar-lesson-item${active}" data-id="${item.id}">${icon} ${title}</button>`;
+    }).join('');
+
+    const existing = sidebar.querySelector('.sidebar-lessons');
+    if (existing) {
+      existing.innerHTML = list;
+    } else {
+      const div = document.createElement('div');
+      div.className = 'sidebar-lessons';
+      div.innerHTML = list;
+      sidebar.prepend(div);
+    }
+
+    sidebar.querySelectorAll('.sidebar-lesson-item').forEach(btn => {
+      btn.addEventListener('click', () => this._navigateTo(btn.dataset.id));
+    });
+  },
+
+  async _loadAd() {
+    try {
+      const ads = await Loader.loadJSON('data/ads.json');
+      if (!ads || ads.length === 0) return;
+      const ad = ads[Math.floor(Math.random() * ads.length)];
+      this._renderAd(ad);
+    } catch (err) {
+      // Ads are non-critical; silently ignore failures
+    }
+  },
+
+  _renderAd(ad) {
+    const adContainer = document.getElementById('viewer-ad');
+    if (!adContainer) return;
+    if (adContainer.querySelector('.ad-card')) return;
+    const lang = App._state.lang;
+    const title = ad.title[lang] || ad.title.en;
+    const text = ad.text[lang] || ad.text.en;
+    const hasImage = ad.image && ad.image !== 'none';
+
+    const card = document.createElement('div');
+    card.className = 'ad-card';
+    card.innerHTML = `
+      <div class="ad-title">${title}</div>
+      ${hasImage ? `<img class="ad-image" src="${ad.image}" alt="${title}" loading="lazy">` : ''}
+      <div class="ad-text">${text}</div>`;
+    adContainer.appendChild(card);
   }
 };
 
