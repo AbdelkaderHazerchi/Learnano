@@ -1,0 +1,106 @@
+You are an expert Frontend Developer and Software Architect. I want you to act as a core developer to help me scaffold and build a completely serverless, high-performance Educational Web Application for Technical Sciences. 
+
+The entire project must be built strictly using standard web technologies: vanilla HTML5, CSS3, and modern JavaScript (ES6+), without any backend servers or complex frameworks (No Node.js, No React, No Vue). Everything, including progress tracking and state management, must happen on the client-side.
+
+Below is the complete specification, structural blueprint, and technical requirements for the project.
+
+---
+
+### 1. PROJECT ARCHITECTURE & FILE STRUCTURE
+The project must follow a clean, modular, and easy-to-maintain directory structure. Please adhere to this layout:
+
+project-root/
+│
+├── index.html               # Main landing page
+├── courses.html             # Lists all available courses
+├── track.html               # Displays user progress, stats, and badges
+├── viewer.html              # The dynamic container page for both lessons and quizzes
+│
+├── css/
+│   ├── main.css             # Global styles, variables, typography, and theme controls
+│   └── animations.css       # Light, optimized keyframe transitions
+│
+├── js/
+│   ├── app.js               # Global initialization (Theme, Language toggles)
+│   ├── core.js              # State management, LocalStorage syncing, points system
+│   └── router.js            # Dynamic JSON fetching and DOM injection for viewer.html
+│
+└── data/
+    ├── courses.json         # Metadata index of all courses
+    └── modules/
+        ├── tech-sciences-1.json   # Course content containing lessons and quizzes
+        └── tech-sciences-2.json
+
+---
+
+### 2. PAGE SPECIFICATIONS & USER INTERFACE (UI)
+* **Home Page (`index.html`):** A welcoming landing page featuring a hero section, brief description of the platform, a "Start Learning" call-to-action button, and a feature highlights section.
+* **Courses Page (`courses.html`):** Renders a grid of cards showing available courses. Each card displays the Course Title, Description, Total Lessons, Points up for grabs, and a progress bar showing completion percentage.
+* **Track Page (`track.html`):** A dashboard for the user showing total points accumulated, a breakdown of their progress per course, and visual checklists of completed checkpoints.
+* **Dynamic Viewer Page (`viewer.html`):** A single, highly adaptive template that serves as the layout for *both* text-based lessons and interactive quizzes. It updates dynamically depending on the URL parameters (e.g., `viewer.html?course=tech-1&lesson=lesson-2`).
+
+---
+
+### 3. DYNAMIC CONTENT & DATA STRUCTURING (JSON)
+All educational content is separated from the UI logic and stored in structured JSON files. 
+
+**Requirements for `viewer.html` processing:**
+1. Parse the URL parameters to locate the correct course and lesson ID.
+2. Fetch the corresponding JSON file from `data/modules/`.
+3. Read the `type` property of the item. 
+    * If `type: "text"`, render the Markdown content.
+    * If `type: "quiz"`, dynamically render an interactive form with radio choices or checkboxes.
+
+**JSON Schema Blueprint Example:**
+```json
+{
+  "courseId": "tech-sciences-1",
+  "courseTitle": "Introduction to Technical Sciences",
+  "items": [
+    {
+      "id": "lesson-1",
+      "title": "Foundations of Logic Gates",
+      "type": "text",
+      "content": "# Foundations of Logic Gates\n\nLogic gates are the building blocks of digital circuits...\n\n### Types of Gates:\n* **AND Gate**: Outputs true only if both inputs are true.\n* **OR Gate**: Outputs true if at least one input is true.",
+      "points": 10
+    },
+    {
+      "id": "quiz-1",
+      "title": "Logic Gates Checkpoint Quiz",
+      "type": "quiz",
+      "points": 25,
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": "Which logic gate outputs a high signal (1) only when all inputs are low (0)?",
+          "options": ["AND Gate", "NOR Gate", "OR Gate", "NAND Gate"],
+          "correctAnswerIndex": 1
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+### 4. CORE FEATURES & LOGIC SPECIFICATIONS
+
+* **Client-Side Progress & Points System (`LocalStorage`):** Track user state securely in the browser. Store an object tracking completed lesson IDs, quiz scores, and total points. When a user clicks the "Checkpoint / Mark as Completed" button at the bottom of a lesson, update the state, credit them the points assigned to that lesson, and save to `LocalStorage`.
+* **Markdown & Code Processing:** For text lessons, read the raw Markdown string from the JSON object and safely parse it into standard HTML elements inside the main viewport. Use a reliable external library via CDN like **Marked.js** for Markdown parsing, and **Prism.js** or **Highlight.js** for rich code syntax highlighting. For math formulas/equations, please integrate **KaTeX** or **MathJax** compatibility.
+* **Interactive Quizzes:** When a quiz item loads, dynamically build the HTML form. Prevent the user from proceeding until they submit their answers. Upon submission, highlight correct answers in green and incorrect ones in red, tally the score, and if passed, credit the points and update progress.
+
+---
+
+### 5. DESIGN, UX, AND ACCESSIBILITY REQUIREMENTS
+
+* **Color Theme & System Sync:** Design a clean, high-contrast, non-fatiguing layout. Implement global CSS variables for colors (backgrounds, surfaces, text primary/secondary, accents). Support three theme states: Light Mode, Dark Mode, and a System Default setting that automatically reads `prefers-color-scheme`.
+* **Internationalization / Bilingual Support (i18n):** Support seamless switching between **Arabic (RTL)** and **English (LTR)**. Changing the language toggle must update the DOM text, swap UI labels, and switch the root document direction dynamically via `document.documentElement.dir = 'rtl' | 'ltr'`.
+* **Scroll Progress & Smooth Micro-animations:** In `viewer.html`, implement a sticky, thin progress bar at the very top of the screen that dynamically fills up from 0% to 100% as the user scrolls down to read a lesson. Use soft, non-intrusive transition animations (`opacity`, `transform`) when loading elements or transitioning between lessons to maintain performance.
+
+---
+
+### YOUR TASK
+
+Generate the fully functional, clean, and commented code for the boilerplate structures of all HTML files, the global `main.css` containing the theme setup, and the complete JavaScript logic (`app.js`, `core.js`, and `router.js`) needed to bind these features seamlessly.

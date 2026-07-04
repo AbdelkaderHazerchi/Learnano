@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tech-sciences-1",
+    "title": {
+      "en": "Introduction to Technical Sciences",
+      "ar": "مقدمة في العلوم التقنية"
+    },
+    "description": {
+      "en": "Explore the foundations of digital logic, circuit design, and computational thinking. Perfect for beginners in engineering and computer science.",
+      "ar": "استكشف أساسيات المنطق الرقمي وتصميم الدوائر والتفكير الحاسوبي. مثالي للمبتدئين في الهندسة وعلوم الحاسوب."
+    },
+    "moduleFile": "tech-sciences-1.json",
+    "totalLessons": 2,
+    "totalPoints": 35,
+    "icon": "🔬"
+  },
+  {
+    "id": "tech-sciences-2",
+    "title": {
+      "en": "Advanced Digital Systems",
+      "ar": "الأنظمة الرقمية المتقدمة"
+    },
+    "description": {
+      "en": "Dive deeper into sequential circuits, memory units, and microprocessor architecture. Build on foundational logic gate knowledge.",
+      "ar": "تعمق في الدوائر المتسلسلة ووحدات الذاكرة وهندسة المعالجات الدقيقة. ابنِ على معرفة أساسيات البوابات المنطقية."
+    },
+    "moduleFile": "tech-sciences-2.json",
+    "totalLessons": 2,
+    "totalPoints": 40,
+    "icon": "⚙️"
+  }
+]

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your learning progress, points, and badges.">
+  <title>Track — Learnano</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="track">
+
+<div id="app">
+  <main class="page-wrapper">
+    <div class="container">
+
+      <h1 class="section-title" data-i18n="track.title">Your Progress</h1>
+
+      <div class="track-stats">
+        <div class="stat-card animate-slide-up">
+          <div class="stat-value" id="total-points">0</div>
+          <div class="stat-label" data-i18n="track.totalPoints">Total Points</div>
+        </div>
+        <div class="stat-card animate-slide-up">
+          <div class="stat-value" id="user-level" style="font-size:1.6rem">-</div>
+          <div class="stat-label" data-i18n="profile.level">Level</div>
+        </div>
+        <div class="stat-card animate-slide-up" style="grid-column:1/-1">
+          <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.35rem" id="level-label"></div>
+          <div class="progress-bar"><div class="progress-fill" id="level-progress" style="width:0%"></div></div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.35rem" id="level-next-pts"></div>
+        </div>
+      </div>
+
+      <section style="margin-bottom:2rem">
+        <h2 class="section-title" data-i18n="track.badges" style="font-size:1.15rem">Badges</h2>
+        <div id="badges-list" class="animate-fade-in"></div>
+      </section>
+
+      <section style="margin-bottom:2rem">
+        <h2 class="section-title" data-i18n="track.courseProgress" style="font-size:1.15rem">Course Progress</h2>
+        <div id="course-progress-list"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-i18n="track.completedItems" style="font-size:1.15rem">Completed Items</h2>
+        <div id="completed-items" class="animate-fade-in"></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+async function PageInit() {
+  const lang = App._state.lang;
+  const points = State.getTotalPoints();
+
+  document.getElementById('total-points').textContent = points;
+
+  // Level
+  const lv = State.getLevel(points);
+  document.getElementById('user-level').textContent = lv.level;
+  document.getElementById('level-label').textContent = `${lv.label}`;
+  document.getElementById('level-progress').style.width = State.getLevelProgress(points) + '%';
+  const nextPts = State.getNextLevelPoints(points);
+  document.getElementById('level-next-pts').textContent = nextPts > 0
+    ? `${nextPts} ${App.t('profile.nextLevel')}`
+    : 'Max level!';
+
+  // Badges
+  const badgesContainer = document.getElementById('badges-list');
+  const earnedBadges = State.getBadges();
+  const allBadgeDefs = State.getBadgeDefs();
+
+  if (earnedBadges.length === 0) {
+    badgesContainer.innerHTML = `<p class="empty-state">${App.t('track.noBadges')}</p>`;
+  } else {
+    badgesContainer.innerHTML = earnedBadges.map(b => `
+      <div class="badge-item animate-scale-in">
+        <span style="font-size:1.5rem">${b.icon}</span>
+        <div>
+          <strong>${b.title[lang] || b.title.en}</strong>
+          <div style="font-size:0.8rem;color:var(--text-secondary)">${b.desc[lang] || b.desc.en}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Locked badges preview
+  const locked = allBadgeDefs.filter(d => !earnedBadges.find(b => b.id === d.id));
+  if (locked.length > 0) {
+    badgesContainer.innerHTML += '<div style="margin-top:0.75rem">';
+    locked.forEach(d => {
+      badgesContainer.innerHTML += `
+        <div class="badge-item locked">
+          <span style="font-size:1.5rem">🔒</span>
+          <div>
+            <strong>${d.title[lang] || d.title.en}</strong>
+            <div style="font-size:0.8rem;color:var(--text-secondary)">${d.desc[lang] || d.desc.en}</div>
+          </div>
+        </div>`;
+    });
+    badgesContainer.innerHTML += '</div>';
+  }
+
+  // Course progress
+  const progressContainer = document.getElementById('course-progress-list');
+  try {
+    const courses = await Loader.loadJSON('data/courses.json');
+
+    const modules = await Promise.all(courses.map(async c => {
+      try {
+        return await Loader.loadJSON(`data/modules/${c.moduleFile}`);
+      } catch { return null; }
+    }));
+
+    if (courses.length === 0) {
+      progressContainer.innerHTML = '<p class="empty-state">No courses available.</p>';
+    } else {
+      progressContainer.innerHTML = '';
+      courses.forEach((course, i) => {
+        const mod = modules[i];
+        const total = mod ? mod.items.length : course.totalLessons;
+        const progress = State.getCourseProgress(course.id, total);
+        const title = course.title[lang] || course.title.en;
+
+        const card = document.createElement('div');
+        card.className = 'progress-card animate-slide-up';
+        card.innerHTML = `
+          <div class="progress-card-header">
+            <span><strong>${course.icon || '📘'} ${title}</strong></span>
+            <span style="font-size:0.85rem;color:var(--text-secondary)">${progress.completed}/${progress.total}</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:${progress.pct}%"></div>
+          </div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.5rem">${progress.pct}% ${App.t('courses.progress')}</div>
+        `;
+        progressContainer.appendChild(card);
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    progressContainer.innerHTML = '<p class="empty-state">⚠️ Failed to load course data.</p>';
+  }
+
+  // Completed items
+  const completedContainer = document.getElementById('completed-items');
+  const completedLessons = State.getCompletedLessons();
+  const quizScores = State.getQuizScores();
+
+  if (completedLessons.length === 0 && quizScores.length === 0) {
+    completedContainer.innerHTML = `<p class="empty-state">${App.t('track.noCompleted')}</p>`;
+  } else {
+    const items = [
+      ...completedLessons.map(l => ({ ...l, label: `📖 ${l.lessonId}`, type: 'lesson' })),
+      ...quizScores.filter(q => q.passed).map(q => ({ ...q, label: `🧪 ${q.quizId}`, type: 'quiz' }))
+    ].sort((a, b) => b.ts - a.ts);
+
+    completedContainer.innerHTML = `<div class="progress-card">${items.map(item => `
+      <div class="checklist-item">
+        <span class="check-icon">✅</span>
+        <span>${item.label}</span>
+        <span style="margin-left:auto;font-size:0.8rem;color:var(--text-muted)">+${item.points || item.earned || 0}pts</span>
+      </div>
+    `).join('')}</div>`;
+  }
+}
+</script>
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

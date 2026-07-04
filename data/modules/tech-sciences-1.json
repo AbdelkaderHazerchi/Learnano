@@ -1,0 +1,82 @@
+{
+  "courseId": "tech-sciences-1",
+  "courseTitle": {
+    "en": "Introduction to Technical Sciences",
+    "ar": "مقدمة في العلوم التقنية"
+  },
+  "items": [
+    {
+      "id": "lesson-1",
+      "title": {
+        "en": "Foundations of Logic Gates",
+        "ar": "أساسيات البوابات المنطقية"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Foundations of Logic Gates\n\nLogic gates are the fundamental building blocks of digital circuits. They perform basic logical functions that are essential in modern computing.\n\n## AND Gate\n\nThe AND gate outputs **true (1)** only when **all** its inputs are true. If any input is false, the output is false.\n\n| Input A | Input B | Output |\n|---------|---------|--------|\n| 0       | 0       | 0      |\n| 0       | 1       | 0      |\n| 1       | 0       | 0      |\n| 1       | 1       | 1      |\n\n## OR Gate\n\nThe OR gate outputs **true (1)** if **at least one** input is true. It only outputs false when all inputs are false.\n\n## NOT Gate\n\nThe NOT gate is a simple inverter — it flips the input. If the input is 1, the output is 0, and vice versa.\n\n### Why This Matters\n\nThese three gates — AND, OR, and NOT — form the basis for all digital logic. With them, we can build adders, multiplexers, memory units, and even entire processors. Understanding them is the first step into the world of digital design.\n\n```\n// Simple logic gate simulation in pseudocode\nfunction andGate(a, b) {\n  return a && b;\n}\n\nfunction orGate(a, b) {\n  return a || b;\n}\n\nfunction notGate(a) {\n  return !a;\n}\n```\n\nIn the next lesson, we will explore how multiple gates combine to create complex circuits."
+      },
+      "points": 10
+    },
+    {
+      "id": "quiz-1",
+      "title": {
+        "en": "Logic Gates Checkpoint Quiz",
+        "ar": "اختبار البوابات المنطقية"
+      },
+      "type": "quiz",
+      "points": 25,
+      "passThreshold": 0.8,
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": {
+            "en": "Which logic gate outputs a high signal (1) only when all inputs are low (0)?",
+            "ar": "أي بوابة منطقية تخرج إشارة عالية (1) فقط عندما تكون جميع المدخلات منخفضة (0)؟"
+          },
+          "type": "single",
+          "options": {
+            "en": ["AND Gate", "NOR Gate", "OR Gate", "NAND Gate"],
+            "ar": ["بوابة AND", "بوابة NOR", "بوابة OR", "بوابة NAND"]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q2",
+          "questionText": {
+            "en": "What does a NOT gate do?",
+            "ar": "ماذا تفعل بوابة NOT؟"
+          },
+          "type": "single",
+          "options": {
+            "en": ["Multiplies inputs", "Inverts the input", "Adds two inputs", "Stores a bit"],
+            "ar": ["تضاعف المدخلات", "تعكس الإدخال", "تجمع مدخلين", "تخزن بتًا"]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q3",
+          "questionText": {
+            "en": "Select all statements that are TRUE about an AND gate:",
+            "ar": "اختر جميع العبارات الصحيحة حول بوابة AND:"
+          },
+          "type": "multiple",
+          "options": {
+            "en": [
+              "Output is 1 only when ALL inputs are 1",
+              "Output is 1 when at least one input is 1",
+              "It can have two or more inputs",
+              "It is the same as an OR gate"
+            ],
+            "ar": [
+              "المخرج يكون 1 فقط عندما تكون جميع المدخلات 1",
+              "المخرج يكون 1 عندما يكون إدخال واحد على الأقل 1",
+              "يمكن أن يكون لها مدخلان أو أكثر",
+              "هي نفس بوابة OR"
+            ]
+          },
+          "correctAnswerIndices": [0, 2]
+        }
+      ]
+    }
+  ]
+}

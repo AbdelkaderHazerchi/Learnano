@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse available technical science courses.">
+  <title>Courses — Learnano</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="courses">
+
+<div id="app">
+  <main class="page-wrapper">
+    <div class="container">
+
+      <h1 class="section-title" data-i18n="courses.title">Available Courses</h1>
+      <div id="courses-grid" class="card-grid">
+        <div class="loading-spinner"></div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+async function PageInit() {
+  const grid = document.getElementById('courses-grid');
+  if (!grid) return;
+
+  try {
+    const courses = await Loader.loadJSON('data/courses.json');
+
+    const modules = await Promise.all(courses.map(async c => {
+      try {
+        return await Loader.loadJSON(`data/modules/${c.moduleFile}`);
+      } catch { return null; }
+    }));
+
+    grid.innerHTML = '';
+
+    if (courses.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><p>No courses available yet.</p></div>';
+      return;
+    }
+
+    courses.forEach((course, i) => {
+      const mod = modules[i];
+      const total = mod ? mod.items.length : course.totalLessons;
+      const progress = State.getCourseProgress(course.id, total);
+      const firstItem = mod && mod.items.length > 0 ? mod.items[0].id : 'lesson-1';
+      const lang = App._state.lang;
+      const title = course.title[lang] || course.title.en;
+      const desc = course.description[lang] || course.description.en;
+      const anyCompleted = progress.completed > 0;
+      const allDone = progress.completed >= total;
+
+      const card = document.createElement('div');
+      card.className = 'card animate-slide-up';
+      card.style.animationDelay = `${i * 0.1}s`;
+      card.innerHTML = `
+        <div class="card-body">
+          <div class="course-card-icon">${course.icon || '📘'}</div>
+          <h3>${title}</h3>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.5">${desc}</p>
+          <div class="course-card-meta">
+            <span>📚 ${total} ${App.t('courses.lessons')}</span>
+            <span>⭐ ${course.totalPoints} ${App.t('courses.points')}</span>
+          </div>
+          <div class="progress-bar course-card-bar">
+            <div class="progress-fill" style="width:${progress.pct}%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem">
+            <span style="font-size:0.85rem;color:var(--text-secondary)">${App.t('courses.progress')}: ${progress.pct}%</span>
+            <a href="viewer.html?course=${course.id}&item=${firstItem}" class="btn btn-sm ${allDone ? 'btn-success' : anyCompleted ? 'btn-outline' : 'btn-primary'}">
+              ${allDone ? App.t('viewer.completed') : anyCompleted ? App.t('courses.continue') : App.t('courses.start')}
+            </a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  } catch (err) {
+    console.error(err);
+    grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon">⚠️</div><p>Failed to load courses.</p></div>';
+  }
+}
+</script>
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
