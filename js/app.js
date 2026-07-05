@@ -75,7 +75,7 @@ const App = {
     ar: {
       'logo': '\u{1F4D6} Learnano',
       'nav.home': 'الرئيسية',
-      'nav.courses': 'المساقات',
+      'nav.courses': 'الكورسات',
       'nav.track': 'التتبع',
       'theme.system': 'تلقائي',
       'theme.light': 'فاتح',
@@ -92,15 +92,15 @@ const App = {
       'feature.progress.desc': 'راقب رحلتك التعليمية بالنقاط والشارات وإحصائيات الإنجاز.',
       'feature.offline': 'يعمل بدون إنترنت',
       'feature.offline.desc': 'جميع المحتويات مخزنة محليًا — تعلم في أي وقت وأي مكان.',
-      'courses.title': 'المساقات المتاحة',
+      'courses.title': 'الكورسات المتاحة',
       'courses.lessons': 'عنصر',
       'courses.points': 'نقطة',
       'courses.progress': 'التقدم',
-      'courses.start': 'ابدأ المساق',
+      'courses.start': 'ابدأ الكورس',
       'courses.continue': 'استمر',
       'track.title': 'تقدمك',
       'track.totalPoints': 'مجموع النقاط',
-      'track.courseProgress': 'تقدم المساق',
+      'track.courseProgress': 'تقدم الكورس',
       'track.completedItems': 'العناصر المكتملة',
       'track.badges': 'الشارات',
       'track.noBadges': 'أكمل الدروس والاختبارات لتحصل على الشارات!',
@@ -109,8 +109,8 @@ const App = {
       'profile.level': 'المستوى',
       'profile.points': 'النقاط',
       'profile.badges': 'الشارات',
-      'profile.courses': 'المساقات',
-      'profile.startedCourses': 'المساقات التي بدأتها',
+      'profile.courses': 'الكورسات',
+      'profile.startedCourses': 'الكورسات التي بدأتها',
       'profile.nextLevel': 'نقطة للمستوى التالي',
       'profile.viewFull': 'عرض التقدم الكامل',
       'profile.reset': 'إعادة تعيين البيانات',
@@ -132,7 +132,7 @@ const App = {
       'toast.pointsEarned': 'نقطة مكتسبة!',
       'toast.lessonComplete': 'تم تحديد الدرس كمكتمل!',
       'toast.badgeEarned': 'تم ربح شارة جديدة:',
-      'toast.courseComplete': 'تهانينا! لقد أكملت المساق!',
+      'toast.courseComplete': 'تهانينا! لقد أكملت الكورس!',
       'footer.copyright': '\u00A9 2026 Learnano. جميع الحقوق محفوظة.',
       'home.features': 'المميزات',
       'home.getStarted': 'ابدأ الآن',
@@ -306,9 +306,9 @@ const App = {
     const container = document.getElementById('panel-started-courses');
     if (!container) return;
     try {
-      const courses = await Loader.loadJSON('data/courses.json');
+      const courses = await Loader.loadJSON('https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/courses.json');
       const modules = await Promise.all(courses.map(async c => {
-        try { return await Loader.loadJSON(`data/modules/${c.moduleFile}`); }
+        try { return await Loader.loadJSON(`https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/modules/${c.moduleFile}`); }
         catch { return null; }
       }));
       const started = State.getStartedCourses(courses, modules);

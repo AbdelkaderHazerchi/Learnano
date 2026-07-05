@@ -26,11 +26,11 @@ const Router = {
 
   async _loadCourse(courseId) {
     try {
-      const courses = await Loader.loadJSON('https://github.com/AbdelkaderHazerchi/Learnano/blob/17d2fae6a5d9626fefad4a768c451eb313ae10a2/data/courses.json');
+      const courses = await Loader.loadJSON('https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/courses.json');
       const meta = courses.find(c => c.id === courseId);
       if (!meta) throw new Error(`Course "${courseId}" not found`);
 
-      this._courseData = await Loader.loadJSON(`https://github.com/AbdelkaderHazerchi/Learnano/blob/17d2fae6a5d9626fefad4a768c451eb313ae10a2/data/modules/${meta.moduleFile}`);
+      this._courseData = await Loader.loadJSON(`https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/modules/${meta.moduleFile}`);
 
       const bc = document.getElementById('course-breadcrumb');
       if (bc) {
@@ -339,7 +339,7 @@ const Router = {
 
   async _loadAd() {
     try {
-      const ads = await Loader.loadJSON('data/ads.json');
+      const ads = await Loader.loadJSON('https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/ads.json');
       if (!ads || ads.length === 0) return;
       const ad = ads[Math.floor(Math.random() * ads.length)];
       this._renderAd(ad);

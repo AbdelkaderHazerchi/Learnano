@@ -108,11 +108,11 @@ async function PageInit() {
   // Course progress
   const progressContainer = document.getElementById('course-progress-list');
   try {
-    const courses = await Loader.loadJSON('data/courses.json');
+    const courses = await Loader.loadJSON('https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/courses.json');
 
     const modules = await Promise.all(courses.map(async c => {
       try {
-        return await Loader.loadJSON(`data/modules/${c.moduleFile}`);
+        return await Loader.loadJSON(`https://raw.githubusercontent.com/AbdelkaderHazerchi/Learnano/refs/heads/main/data/modules/${c.moduleFile}`);
       } catch { return null; }
     }));
 
