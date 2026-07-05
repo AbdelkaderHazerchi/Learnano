@@ -150,13 +150,15 @@ async function PageInit() {
   const completedContainer = document.getElementById('completed-items');
   const completedLessons = State.getCompletedLessons();
   const quizScores = State.getQuizScores();
+  const completedArticles = State.getCompletedArticles();
 
-  if (completedLessons.length === 0 && quizScores.length === 0) {
+  if (completedLessons.length === 0 && quizScores.length === 0 && completedArticles.length === 0) {
     completedContainer.innerHTML = `<p class="empty-state">${App.t('track.noCompleted')}</p>`;
   } else {
     const items = [
-      ...completedLessons.map(l => ({ ...l, label: `📖 ${l.lessonId}`, type: 'lesson' })),
-      ...quizScores.filter(q => q.passed).map(q => ({ ...q, label: `🧪 ${q.quizId}`, type: 'quiz' }))
+      ...completedLessons.map(l => ({ ...l, label: `📖 ${l.lessonId}` })),
+      ...quizScores.filter(q => q.passed).map(q => ({ ...q, label: `🧪 ${q.quizId}` })),
+      ...completedArticles.map(a => ({ ...a, label: `📄 ${a.articleId}`, points: a.points }))
     ].sort((a, b) => b.ts - a.ts);
 
     completedContainer.innerHTML = `<div class="progress-card">${items.map(item => `

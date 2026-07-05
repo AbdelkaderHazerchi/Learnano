@@ -9,6 +9,7 @@ const State = {
     totalPoints: 0,
     completedLessons: [],
     quizScores: [],
+    completedArticles: [],
     badges: []
   },
 
@@ -112,6 +113,20 @@ const State = {
     const done = completed + passed;
     return { completed: done, total: totalItems, pct: totalItems > 0 ? Math.round((done / totalItems) * 100) : 0 };
   },
+
+  completeArticle(articleId, points) {
+    if (this.isArticleCompleted(articleId)) return false;
+    this._data.completedArticles.push({ articleId, points, ts: Date.now() });
+    this._data.totalPoints += points;
+    this._save();
+    return true;
+  },
+
+  isArticleCompleted(articleId) {
+    return this._data.completedArticles.some(a => a.articleId === articleId);
+  },
+
+  getCompletedArticles() { return this._data.completedArticles; },
 
   getTotalPoints() { return this._data.totalPoints; },
   getCompletedLessons() { return this._data.completedLessons; },

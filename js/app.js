@@ -10,6 +10,7 @@ const App = {
       'logo': '\u{1F4D6} Learnano',
       'nav.home': 'Home',
       'nav.courses': 'Courses',
+      'nav.articles': 'Articles',
       'nav.track': 'Track',
       'theme.system': 'System',
       'theme.light': 'Light',
@@ -71,11 +72,16 @@ const App = {
       'home.features': 'Features',
       'home.getStarted': 'Get Started',
       'viewer.backToCourses': '\u2190 Back to Courses',
+      'articles.title': 'Articles',
+      'articles.read': 'Read Article',
+      'reader.backToArticles': '\u2190 Back to Articles',
+      'reader.markComplete': 'Mark as Completed',
     },
     ar: {
       'logo': '\u{1F4D6} Learnano',
       'nav.home': 'الرئيسية',
       'nav.courses': 'الكورسات',
+      'nav.articles': 'المقالات',
       'nav.track': 'التتبع',
       'theme.system': 'تلقائي',
       'theme.light': 'فاتح',
@@ -137,6 +143,10 @@ const App = {
       'home.features': 'المميزات',
       'home.getStarted': 'ابدأ الآن',
       'viewer.backToCourses': '\u2190 العودة للمساقات',
+      'articles.title': 'المقالات',
+      'articles.read': 'اقرأ المقال',
+      'reader.backToArticles': '\u2190 العودة للمقالات',
+      'reader.markComplete': 'تحديد كمكتمل',
     }
   },
 
@@ -179,6 +189,7 @@ const App = {
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html" data-page="home"><span data-i18n="nav.home">Home</span></a>
           <a href="courses.html" data-page="courses"><span data-i18n="nav.courses">Courses</span></a>
+          <a href="articles.html" data-page="articles"><span data-i18n="nav.articles">Articles</span></a>
           <a href="track.html" data-page="track"><span data-i18n="nav.track">Track</span></a>
         </nav>
         <div class="header-controls">

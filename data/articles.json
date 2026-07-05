@@ -1,0 +1,32 @@
+[
+  {
+    "id": "what-is-computer",
+    "title": {
+      "en": "What is a Computer?",
+      "ar": "ما هو الحاسوب؟"
+    },
+    "summary": {
+      "en": "A beginner-friendly introduction to computers, their components, and how they work.",
+      "ar": "مقدمة مبسطة عن الحواسيب ومكوناتها وكيفية عملها."
+    },
+    "content": {
+      "en": "# What is a Computer?\n\nA **computer** is an electronic device that processes data and performs tasks according to a set of instructions called a **program**.\n\n## Main Components\n\n1. **Input devices** — Keyboard, mouse, scanner\n2. **Output devices** — Monitor, printer, speakers\n3. **Processing unit (CPU)** — The brain of the computer\n4. **Memory (RAM)** — Temporary storage for active tasks\n5. **Storage (HDD/SSD)** — Permanent data storage\n\n## How It Works\n\nComputers follow the **input → process → output** cycle:\n\n- You type on a keyboard (input)\n- The CPU processes the keystrokes\n- Text appears on the screen (output)\n\n## Binary System\n\nAt their core, computers understand only two states: **0** and **1** (binary). Everything you see — images, videos, text — is represented using combinations of these two digits.\n\n```\nExample: The letter 'A' is 01000001 in binary.\n```\n\n## Summary\n\nComputers are powerful tools that have transformed every aspect of modern life. Understanding their basic operation is the first step toward mastering technology."
+    },
+    "points": 15
+  },
+  {
+    "id": "internet-basics",
+    "title": {
+      "en": "How the Internet Works",
+      "ar": "كيف يعمل الإنترنت؟"
+    },
+    "summary": {
+      "en": "Understand the fundamentals of the internet, from IP addresses to web browsing.",
+      "ar": "افهم أساسيات الإنترنت، من عناوين IP إلى تصفح الويب."
+    },
+    "content": {
+      "en": "# How the Internet Works\n\nThe **internet** is a global network of computers connected to each other, allowing them to communicate and share information.\n\n## Key Concepts\n\n### IP Address\nEvery device on the internet has a unique identifier called an **IP address** (e.g., `192.168.1.1`). It works like a mailing address for your computer.\n\n### DNS (Domain Name System)\nWhen you type `google.com`, your computer asks a DNS server to translate that name into an IP address so it can find the right server.\n\n### HTTP/HTTPS\nWhen you visit a website, your browser sends an HTTP request to the server. The server responds with the webpage data. HTTPS adds encryption for security.\n\n```\nYou → [Request] → Server → [Response] → You\n```\n\n### Packets\nData sent over the internet is broken into small pieces called **packets**. Each packet travels independently and is reassembled at the destination.\n\n## Summary\n\nThe internet is a complex system built on simple principles: addressing (IP), naming (DNS), and protocols (HTTP). Every time you browse the web, billions of these operations happen in seconds."
+    },
+    "points": 20
+  }
+]
