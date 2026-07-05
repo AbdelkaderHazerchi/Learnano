@@ -57,6 +57,20 @@
         </div>
       </section>
 
+      <section id="home-courses" class="home-courses-section">
+        <h2 class="home-courses-title" data-i18n="home.exploreCourses">Explore our courses</h2>
+        <div id="home-courses-grid" class="home-courses-grid">
+          <div class="loading-spinner"></div>
+        </div>
+      </section>
+
+      <section id="home-articles" class="home-courses-section">
+        <h2 class="home-courses-title" data-i18n="home.exploreArticles">Explore our articles</h2>
+        <div id="home-articles-grid" class="home-courses-grid">
+          <div class="loading-spinner"></div>
+        </div>
+      </section>
+
       <section class="text-center" style="padding:3rem 0">
         <h2 data-i18n="home.getStarted" style="font-size:1.3rem;margin-bottom:1rem">Ready to begin?</h2>
         <a href="courses.html" class="btn btn-primary btn-lg" data-i18n="hero.cta">Start Learning</a>
@@ -65,6 +79,75 @@
     </div>
   </main>
 </div>
+
+<script>
+async function PageInit() {
+  const coursesGrid = document.getElementById('home-courses-grid');
+  const articlesGrid = document.getElementById('home-articles-grid');
+
+  if (coursesGrid) {
+    try {
+      const courses = await Loader.loadJSON('data/courses.json');
+      coursesGrid.innerHTML = '';
+
+      courses.slice(0, 3).forEach((course, i) => {
+        const lang = App._state.lang;
+        const title = course.title[lang] || course.title.en;
+        const desc = course.description[lang] || course.description.en;
+
+        const card = document.createElement('div');
+        card.className = 'home-course-card animate-fade-in-up';
+        card.style.animationDelay = `${i * 0.12}s`;
+        card.innerHTML = `
+          <div class="home-course-icon">${course.icon || '📘'}</div>
+          <h3 class="home-course-name">${title}</h3>
+          <p class="home-course-desc">${desc}</p>
+          <div class="home-course-meta">
+            <span>📚 ${course.totalLessons} ${App.t('courses.lessons')}</span>
+            <span>⭐ ${course.totalPoints} ${App.t('courses.points')}</span>
+          </div>
+          <a href="viewer.html?course=${course.id}&item=lesson-1" class="btn btn-primary btn-sm" style="margin-top:auto">${App.t('courses.start')}</a>
+        `;
+        coursesGrid.appendChild(card);
+      });
+    } catch (err) {
+      console.error(err);
+      coursesGrid.innerHTML = '';
+    }
+  }
+
+  if (articlesGrid) {
+    try {
+      const articles = await Loader.loadJSON('data/articles.json');
+      articlesGrid.innerHTML = '';
+
+      articles.slice(0, 3).forEach((article, i) => {
+        const lang = App._state.lang;
+        const title = article.title[lang] || article.title.en;
+        const summary = article.summary[lang] || article.summary.en;
+        const completed = State.isArticleCompleted(article.id);
+
+        const card = document.createElement('div');
+        card.className = 'home-course-card animate-fade-in-up';
+        card.style.animationDelay = `${i * 0.12}s`;
+        card.innerHTML = `
+          <div class="home-course-icon">📄</div>
+          <h3 class="home-course-name">${title}</h3>
+          <p class="home-course-desc">${summary}</p>
+          <div class="home-course-meta">
+            <span>⭐ ${article.points} ${App.t('courses.points')}</span>
+          </div>
+          <a href="reader.html?article=${article.id}" class="btn btn-sm ${completed ? 'btn-success' : 'btn-primary'}" style="margin-top:auto">${completed ? App.t('viewer.completed') : App.t('articles.read')}</a>
+        `;
+        articlesGrid.appendChild(card);
+      });
+    } catch (err) {
+      console.error(err);
+      articlesGrid.innerHTML = '';
+    }
+  }
+}
+</script>
 
 <script src="js/core.js"></script>
 <script src="js/loader.js"></script>

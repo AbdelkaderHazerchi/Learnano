@@ -30,5 +30,21 @@
       "ar": "# كيف يعمل الإنترنت؟\n\n**الإنترنت** هو شبكة عالمية من الحواسيب متصلة ببعضها البعض، مما يسمح لها بالتواصل ومشاركة المعلومات.\n\n## المفاهيم الأساسية\n\n### عنوان IP\nكل جهاز على الإنترنت له معرف فريد يسمى **عنوان IP** (مثال: `192.168.1.1`). يعمل مثل عنوان بريدي لحاسوبك.\n\n### نظام أسماء النطاقات (DNS)\nعندما تكتب `google.com`، يطلب حاسوبك من خادم DNS ترجمة هذا الاسم إلى عنوان IP ليتمكن من العثور على الخادم الصحيح.\n\n### HTTP/HTTPS\nعندما تزور موقع ويب، يرسل متصفحك طلب HTTP إلى الخادم. يرد الخادم ببيانات صفحة الويب. يضيف HTTPS تشفيرًا للأمان.\n\n```\nأنت → [طلب] → خادم → [استجابة] → أنت\n```\n\n### الحزم\nالبيانات المرسلة عبر الإنترنت تقسم إلى قطع صغيرة تسمى **حزم**. كل حزمة تسافر بشكل مستقل ويتم إعادة تجميعها في الوجهة.\n\n## خلاصة\n\nالإنترنت نظام معقد مبني على مبادئ بسيطة: العنونة (IP)، والتسمية (DNS)، والبروتوكولات (HTTP). في كل مرة تتصفح فيها الويب، تحدث مليارات من هذه العمليات في ثوانٍ."
     },
     "points": 20
+  },
+  {
+    "id": "programming-basics",
+    "title": {
+      "en": "Introduction to Programming",
+      "ar": "مقدمة في البرمجة"
+    },
+    "summary": {
+      "en": "Learn the core concepts of programming: variables, loops, functions, and logic.",
+      "ar": "تعلم المفاهيم الأساسية للبرمجة: المتغيرات، الحلقات، الدوال، والمنطق."
+    },
+    "content": {
+      "en": "# Introduction to Programming\n\nProgramming is the art of giving instructions to a computer to perform specific tasks. A **program** is a sequence of instructions written in a programming language.\n\n## Core Concepts\n\n### Variables\nVariables store data that can be used and modified throughout a program.\n\n```python\nname = \"Alice\"\nage = 25\n```\n\n### Data Types\n- **Integer:** whole numbers (e.g., 5, -3)\n- **Float:** decimal numbers (e.g., 3.14)\n- **String:** text (e.g., \"Hello\")\n- **Boolean:** true/false\n\n### Control Flow\n**Conditionals** let your program make decisions:\n```python\nif age >= 18:\n    print(\"Adult\")\nelse:\n    print(\"Minor\")\n```\n\n**Loops** let you repeat actions:\n```python\nfor i in range(5):\n    print(i)\n```\n\n### Functions\nFunctions group reusable code:\n```python\ndef greet(name):\n    return f\"Hello, {name}!\"\n```\n\n## Why Learn Programming?\n\nProgramming powers the modern world — from websites and apps to AI and robotics. It teaches logical thinking and problem-solving skills.",
+      "ar": "# مقدمة في البرمجة\n\nالبرمجة هي فن إعطاء التعليمات للحاسوب لتنفيذ مهام محددة. **البرنامج** هو سلسلة من التعليمات مكتوبة بلغة برمجة.\n\n## المفاهيم الأساسية\n\n### المتغيرات\nتخزن المتغيرات بيانات يمكن استخدامها وتعديلها خلال البرنامج.\n\n```python\nname = \"أحمد\"\nage = 25\n```\n\n### أنواع البيانات\n- **عدد صحيح:** أرقام كاملة (مثال: 5, -3)\n- **عدد عشري:** أرقام عشرية (مثال: 3.14)\n- **نص:** نص (مثال: \"مرحبا\")\n- **منطقي:** صحيح/خطأ\n\n### التحكم في التدفق\n**الجمل الشرطية** تسمح لبرنامجك باتخاذ القرارات:\n```python\nif age >= 18:\n    print(\"بالغ\")\nelse:\n    print(\"قاصر\")\n```\n\n**الحلقات** تسمح لك بتكرار الإجراءات:\n```python\nfor i in range(5):\n    print(i)\n```\n\n### الدوال\nتجمع الدوال كودًا قابلاً لإعادة الاستخدام:\n```python\ndef greet(name):\n    return f\"مرحبًا، {name}!\"\n```\n\n## لماذا تتعلم البرمجة؟\n\nالبرمجة تقود العالم الحديث — من المواقع والتطبيقات إلى الذكاء الاصطناعي والروبوتات. تعلم التفكير المنطقي ومهارات حل المشكلات."
+    },
+    "points": 15
   }
 ]

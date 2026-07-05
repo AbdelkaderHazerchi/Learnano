@@ -28,5 +28,20 @@
     "totalLessons": 4,
     "totalPoints": 40,
     "icon": "⚙️"
+  },
+  {
+    "id": "computer-architecture",
+    "title": {
+      "en": "Computer Architecture Fundamentals",
+      "ar": "أساسيات هندسة الحاسوب"
+    },
+    "description": {
+      "en": "Understand how computers work from the ground up — from logic gates to CPU design and memory hierarchy.",
+      "ar": "افهم كيفية عمل الحواسيب من الأساس — من البوابات المنطقية إلى تصميم وحدة المعالجة المركزية والتسلسل الهرمي للذاكرة."
+    },
+    "moduleFile": "computer-architecture.json",
+    "totalLessons": 6,
+    "totalPoints": 30,
+    "icon": "💻"
   }
 ]

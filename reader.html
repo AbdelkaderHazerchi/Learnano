@@ -14,7 +14,7 @@
 
 <div id="app">
   <main class="page-wrapper">
-    <div class="container" style="max-width:720px">
+    <div class="container" style="max-width:1000px">
 
       <div class="viewer-breadcrumb" style="margin-bottom:1rem">
         <a href="articles.html" id="reader-back-link" data-i18n="reader.backToArticles">&#8592; Back to Articles</a>
@@ -68,6 +68,7 @@ const Reader = {
   _render() {
     const article = this._article;
     const lang = App._state.lang;
+    console.log('render Language:', lang);
     const title = article.title[lang] || article.title.en;
     const md = article.content[lang] || article.content.en;
 
