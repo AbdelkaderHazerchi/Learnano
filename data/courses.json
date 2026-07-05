@@ -1,16 +1,16 @@
 [
   {
-    "id": "tech-sciences-1",
+    "id": "neural-networks-101.json",
     "title": {
-      "en": "Introduction to Technical Sciences",
-      "ar": "مقدمة في العلوم التقنية"
+      "en": "Neural Networks: From Basics to Practice",
+      "ar": "الشبكات العصبية: من الأساسيات إلى التطبيق"
     },
     "description": {
       "en": "Explore the foundations of digital logic, circuit design, and computational thinking. Perfect for beginners in engineering and computer science.",
       "ar": "استكشف أساسيات المنطق الرقمي وتصميم الدوائر والتفكير الحاسوبي. مثالي للمبتدئين في الهندسة وعلوم الحاسوب."
     },
     "moduleFile": "tech-sciences-1.json",
-    "totalLessons": 2,
+    "totalLessons": 8,
     "totalPoints": 35,
     "icon": "🔬"
   },
