@@ -434,7 +434,7 @@ const App = {
   setLanguage(lang) {
     this._state.lang = lang;
     this._saveSettings();
-    this._applyLanguage();
+    location.reload();
   },
 
   t(key) {
