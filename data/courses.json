@@ -15,21 +15,6 @@
     "icon": "🧠"
   },
   {
-    "id": "tech-sciences-2",
-    "title": {
-      "en": "Advanced Digital Systems",
-      "ar": "الأنظمة الرقمية المتقدمة"
-    },
-    "description": {
-      "en": "Dive deeper into sequential circuits, memory units, and microprocessor architecture. Build on foundational logic gate knowledge.",
-      "ar": "تعمق في الدوائر المتسلسلة ووحدات الذاكرة وهندسة المعالجات الدقيقة. ابنِ على معرفة أساسيات البوابات المنطقية."
-    },
-    "moduleFile": "tech-sciences-2.json",
-    "totalLessons": 4,
-    "totalPoints": 40,
-    "icon": "⚙️"
-  },
-  {
     "id": "computer-architecture",
     "title": {
       "en": "Computer Architecture Fundamentals",
