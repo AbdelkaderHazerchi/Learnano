@@ -1,0 +1,316 @@
+{
+  "courseId": "ai-agentic-coding",
+  "courseTitle": {
+    "en": "AI Agentic Coding & Development",
+    "ar": "البرمجة مع وكلاء الذكاء الاصطناعي"
+  },
+  "items": [
+    {
+      "id": "lesson-1",
+      "title": {
+        "en": "Fundamentals of AI Agentic Coding",
+        "ar": "أساسيات البرمجة مع وكلاء الذكاء الاصطناعي"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Fundamentals of AI Agentic Coding\n\nAI Agentic Coding represents a paradigm shift from traditional autocomplete tools (like basic GitHub Copilot) to autonomous and semi-autonomous AI agents capable of reasoning, planning, executing commands, and maintaining context across complex codebases.\n\n## Copilot vs. AI Agents\n- **Code Completion (Copilot):** Predicts the next line or block of code based on immediate surrounding context.\n- **Agentic Coding:** Executes high-level objectives (e.g., \"Add OAuth2 authentication\") by reading files, searching codebases, running terminal commands, creating tests, and fixing bugs autonomously.\n\n## The Perception-Reasoning-Action Loop\n1. **Perception:** Reading source code, system logs, terminal output, and user instructions.\n2. **Reasoning:** Breaking down problems, planning architecture, and selecting appropriate tools.\n3. **Action:** Modifying files, creating new modules, executing build/test commands, and verifying results.\n\n## Core Tooling Capabilities\nModern AI agents (in platforms like OpenCode, Pi, Aider, and Cursor) rely on essential capabilities:\n- **AST & Code Graph Search:** Locating definitions and references accurately across thousands of files.\n- **File System Operations:** Reading, writing, and refactoring files.\n- **Terminal Execution:** Running compilers, test suites, and linters to validate code.",
+        "ar": "# أساسيات البرمجة مع وكلاء الذكاء الاصطناعي\n\nتمثل البرمجة عبر وكلاء الذكاء الاصطناعي (AI Agentic Coding) تحولاً جذرياً من أدوات الإكمال التلقائي التقليدية (مثل GitHub Copilot) إلى وكلاء ذكاء اصطناعي تتمتع بالاستقلالية والقدرة على التفكير والتخطيط وتنفيذ الأوامر والتحكم في المشاريع البرمجية المعقدة.\n\n## الفرق بين الإكمال التلقائي ووكلاء الذكاء الاصطناعي\n- **الإكمال التلقائي (Copilot):** يتوقع السطر أو الكتلة البرمجية التالية بناءً على الملف المفتوح حالياً.\n- **البرمجة التوكيلية (Agentic Coding):** تنفذ أهدافاً عالية المستوى (مثل \"أضف نظام مصادقة OAuth2\") من خلال قراءة عدة ملفات، والبحث في المشروع، وتشغيل أوامر الطرفية، وإنشاء الاختبارات، وإصلاح الأخطاء تلقائياً.\n\n## حلقة الإدراك والتفكير والتنفيذ\n1. **الإدراك (Perception):** قراءة الكود المصدري، وسجلات النظام، ومخرجات الطرفية، وتعليمات المستخدم.\n2. **التفكير (Reasoning):** تفكيك المشاكل إلى خطوات، وتخطيط البنية الهندسية، واختيار الأدوات المناسبة.\n3. **التنفيذ (Action):** التعديل على الملفات، وإنشاء وحدات جديدة، وتشغيل أوامر البناء والاختبار، والتحقق من النتائج.\n\n## القدرات الأساسية للوكيل\nيعتمد الوكلاء المتقدمون (في أدوات مثل OpenCode و Pi و Aider و Cursor) على قدرات محورية:\n- **البحث المتقدم في المشروع:** تحديد التعاريف والمراجع بدقة عبر آلاف الملفات.\n- **إدارة نظام الملفات:** قراءة وإنشاء وتعديل الشفرات البرمجية.\n- **تنفيذ أوامر الطرفية (Terminal):** تشغيل أدوات الفحص (Linters)، والمجمّعات (Compilers)، وحزم الاختبارات للتحقق من سلامة الكود."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-2",
+      "title": {
+        "en": "Context Engineering & Task Design",
+        "ar": "هندسة السياق وتصميم المهام لوكلاء الذكاء الاصطناعي"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Context Engineering and Task Design\n\nTo achieve optimal performance from AI coding agents, developers must master Context Engineering and Task Structuring. Giving an agent too much irrelevant information pollutes its context window, while giving too little leads to hallucinations and wrong assumptions.\n\n## Principles of Context Engineering\n- **Minimal High-Quality Context:** Feed only relevant files, schemas, and API documentation.\n- **Explicit Constraints:** State what the agent **must not** modify or use (e.g., \"Do not alter external database schemas\").\n- **Acceptance Criteria:** Define precise, verifiable definitions of success (e.g., \"All unit tests in `tests/auth_test.py` must pass\").\n\n## Structuring Tasks Effectively\n1. **Atomic Tasks:** Break complex refactoring into small, verifiable chunks.\n2. **Provide Concrete Examples:** Include input/output JSON schemas or expected function signatures.\n3. **Clear Variable & Architecture Terminology:** Use standard project terms consistently.\n\n## Avoiding Scope Creep\nAgents tend to keep modifying files beyond the task scope if bounds are not set. Always specify:\n- Affected files and directory boundaries.\n- Required test coverage.\n- Performance and security constraints.",
+        "ar": "# هندسة السياق وتصميم المهام لوكلاء الذكاء الاصطناعي\n\nللحصول على أعلى أداء من وكلاء البرمجة، يجب على المبرمج إتقان \"هندسة السياق\" (Context Engineering) وصياغة المهام بأسلوب هيكلي. تزويد الوكيل بمعلومات كثيرة غير مهمة يؤدي لتشتيت ذاكرته (Context Window)، بينما تقليل المعلومات يؤدي للهلوسة وافتراضات خاطئة.\n\n## مبادئ هندسة السياق\n- **سياق مركز وعالي الجودة:** تزود الوكيل فقط بالملفات والواجهات (APIs) والمخططات (Schemas) ذات الصلة المباشرة.\n- **القيود الصريحة:** تحديد ما **يُحظر** على الوكيل تعديله (مثال: \"لا تقم بتعديل مخطط قاعدة البيانات الحالية\").\n- **معايير القبول (Acceptance Criteria):** تعريف واضح للنجاح (مثال: \"يجب أن تنجح جميع اختبارات Unit Tests في `tests/auth_test.py`\").\n\n## الهيكلة الفعالة للمهام\n1. **المهام الذرية (Atomic Tasks):** تقسيم إعادة الهيكلة (Refactoring) المعقدة إلى خطوات صغيرة يمكن التحقق منها.\n2. **تقديم أمثلة ملموسة:** توفير نماذج مدخلات ومخرجات (JSON Schemas) أو توقيعات الدوال المتوقعة (Function Signatures).\n3. **توحيد المصطلحات الهندسية:** استخدام أسماء المتغيرات وبنية المشروع بأسلوب ثابت دون غموض.\n\n## تجنب اتساع نطاق المهمة (Scope Creep)\nيميل الوكيل أحياناً إلى تعديل ملفات خارج النطاق إذا لم تحدد له حدوداً صريحة. صرّح دائماً بـ:\n- الملفات والمجلدات المسموح بتعديلها فقط.\n- نسبة تغطية الاختبارات المطلوبة.\n- معايير الأمان والأداء."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-3",
+      "title": {
+        "en": "Configuring Agents via Markdown (`.md`) Files",
+        "ar": "تكوين الوكلاء عبر ملفات الماركداون (`.md`)"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Configuring Agents via Markdown (`.md`) Files\n\nModern agentic environments (such as OpenCode, Pi, Aider, and Cursor) use Markdown files (`AGENTS.md`, `SYSTEM.md`, `.clinerules`, or `.cursorrules`) to define agent personas, rules, build pipelines, and project specifications.\n\n## Structure of an `AGENTS.md` File\nAn agent configuration file typically includes:\n1. **Role & Objectives:** Who the agent is and its primary mission.\n2. **Codebase Standards:** Formatting guidelines, naming conventions, and preferred design patterns.\n3. **Workflow Instructions:** Steps for creating pull requests, testing, and handling errors.\n4. **Tool Access Rules:** Permitted shell commands and restricted directories.\n\n## Example `AGENTS.md` Configuration\n```markdown\n# AI Agent Directives\n\n## Role\nYou are a Senior Full-Stack Engineer specializing in TypeScript and Clean Architecture.\n\n## Core Rules\n- Always write unit tests using Vitest before declaring a task complete.\n- Follow ESLint and Prettier configurations in the project.\n- Do not install new npm dependencies without prior authorization.\n\n## Architecture Guidelines\n- Separate domain logic from API handlers.\n- Keep components modular and reusable.\n- Write strict TypeScript types; do not use `any`.\n```\n\n## Why Markdown Rules Work Best\nMarkdown provides a clear, hierarchical, human-readable format that Large Language Models parse efficiently as top-level system context.",
+        "ar": "# تكوين الوكلاء عبر ملفات الماركداون (`.md`)\n\nتستخدم بيئات البرمجة التوكيلية الحديثة (مثل OpenCode و Pi و Aider و Cursor) ملفات الماركداون مثل (`AGENTS.md` أو `SYSTEM.md` أو `.clinerules` أو `.cursorrules`) لتحديد شخصية الوكيل، وقواعد المشروع، وأساليب البناء والاختبار.\n\n## هيكل ملف `AGENTS.md`\nيتكون ملف تكوين الوكيل عادة من الأجزاء التالية:\n1. **الدور والأهداف (Role & Objectives):** تعريف هُوية الوكيل ومهمته الرئيسية.\n2. **معايير المشروع (Codebase Standards):** قواعد التنسيق، وتسمية المتغيرات، وأنماط التصميم المعتمدة.\n3. **تعليمات سير العمل (Workflow Instructions):** خطوات إجراء الاختبارات وكتابة الشفرات ومراجعة الأخطاء.\n4. **قواعد استخدام الأدوات:** الأوامر المسموح بتشغيلها والمجلدات المحظورة.\n\n## نموذج عملي لملف `AGENTS.md`\n```markdown\n# توجيهات وكيل الذكاء الاصطناعي\n\n## الدور\nأنت مهندس برمجيات خبير متخصص في TypeScript والهندسة النظيفة (Clean Architecture).\n\n## القواعد الأساسية\n- اكتب دائماً اختبارات وحدة (Unit Tests) باستخدام Vitest قبل إنهاء أي مهمة.\n- التزم بتنسيق ESLint و Prettier المعتمد في المشروع.\n- يمنع تثبيت حزم npm جديدة دون إذن صريح.\n\n## قواعد البنية الهندسية\n- افصل المنطق البرمجي (Domain Logic) عن معالجات API.\n- استخدم أنواع TypeScript الصارمة؛ ويُمنع استخدام `any`.\n```\n\n## لماذا تُفضّل ملفات الماركداون؟\nتوفر ملفات Markdown بنية هرمية واضحة وسهلة القراءة للبشر وللنماذج اللغوية (LLMs)، مما يساعد الذكاء الاصطناعي على فهم التعليمات كقواعد نظام (System Prompt) ثابتة."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-4",
+      "title": {
+        "en": "Multi-Agent Workflow Architecture: Planner -> Critic -> Optimizer -> Executor",
+        "ar": "منهجية متعدد الوكلاء: مخطط -> ناقد -> محسن -> منفذ"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Multi-Agent Workflow: Planner -> Critic -> Optimizer -> Executor\n\nComplex software tasks fail when assigned to a single prompt/agent because one context window must handle planning, security audit, code generation, and error fixing simultaneously. Resolving this requires a multi-agent pipeline.\n\n## The 4-Agent Pipeline Architecture\n\n1. **Planner Agent (وكيل مخطط):**\n   - **Role:** Analyzes the objective, studies codebase architecture, and generates a detailed step-by-step implementation plan.\n   - **Output:** Structured proposal containing affected files, dependencies, and action items.\n\n2. **Critic Agent (وكيل ناقد للخطة):**\n   - **Role:** Reviews the Planner's proposal for vulnerabilities, edge cases, breaking changes, and architectural anti-patterns.\n   - **Output:** Detailed critique highlighting flaws, missing steps, or potential regressions.\n\n3. **Plan Optimizer / Extractor Agent (وكيل استخراج أفضل خطة):**\n   - **Role:** Synthesizes the Planner's proposal and the Critic's feedback into a finalized, deterministic blueprint.\n   - **Output:** Clean, numbered execution checklist with zero ambiguity.\n\n4. **Executor Agent (وكيل منفذ):**\n   - **Role:** Takes the optimized blueprint and executes it item-by-item, writing code, running tests, and applying fixes.\n   - **Output:** Functional code changes and passing test suite results.\n\n## Why This Pattern Eliminates Hallucinations\n- Decouples reasoning from code execution.\n- Ensures security and architectural flaws are caught *before* code is modified.\n- Keeps execution context narrow, fast, and precise.",
+        "ar": "# منهجية متعدد الوكلاء: مخطط -> ناقد -> محسن -> منفذ\n\nتفشل المهام البرمجية المعقدة عند إسنادها لوكيل واحد في طلب واحد (Single Prompt)، لأن الوكيل يضطر لمعالجة التخطيط، والمراجعة الأمنية، وكتابة الكود، وإصلاح الأخطاء في نفس الوقت. الحل الهندسي هو الاعتماد على سلسلة وكلاء متعددي الأدوار (Multi-Agent Pipeline).\n\n## هندسة سلسلة الوكلاء الأربعة\n\n1. **وكيل مخطط (Planner Agent):**\n   - **الدور:** تحليل الهدف الشامل، ودراسة بنية الكود الحالي، وإنشاء مسودة خطة تنفيذ تفصيلية.\n   - **المخرجات:** مقترح مهيكل يتضمن الملفات المتأثرة، والاعتمادات، وخطوات العمل.\n\n2. **وكيل ناقد للخطة (Critic Agent):**\n   - **الدور:** فحص خطة المخطط بدقة لكشف الثغرات الأمنية، الحالات الخاصة (Edge Cases)، والتغييرات المسببة للأخطاء (Breaking Changes).\n   - **المخرجات:** تقرير نقد تفصيلي يبرز العيوب والنقاط المفقودة.\n\n3. **وكيل استخراج أفضل خطة / المحسن (Plan Extractor & Optimizer Agent):**\n   - **الدور:** دمج مقترح المخطط مع ملاحظات الناقد لإنشاء خطة تنفيذ نهائية ومثالية.\n   - **المخرجات:** قائمة مهام نهائية، مرتبة ودقيقة، خالية من الغموض.\n\n4. **وكيل منفذ (Executor Agent):**\n   - **الدور:** استلام الخطة المحسنة وتنفيذها خطوة بخطوة، مع كتابة الكود وتشغيل الاختبارات وتعديل الملفات.\n   - **المخرجات:** كود برمجي يعمل بكفاءة واختبارات ناجحة.\n\n## فائدة هذه المنهجية\n- فصل التفكير الهندسي والتخطيط عن كتابة الكود.\n- اكتشاف الثغرات البنيوية قبل البدء بتعديل المشروع.\n- حصر سياق كل وكيل في مهمة محددة جداً لمنع الهلوسة."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-5",
+      "title": {
+        "en": "Advanced Techniques: Self-Correction, TDD, and Safety Rules",
+        "ar": "تقنيات متقدمة: التصحيح الذاتي، التطوير الموجه بالاختبارات، وقواعد الأمان"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Advanced Agentic Patterns & Best Practices\n\nTo build production-grade software with AI agents, advanced techniques must be incorporated into the development cycle.\n\n## 1. Test-Driven Agentic Coding (TDAC)\n- **Step 1:** The agent writes unit and integration tests based on task requirements.\n- **Step 2:** The agent runs tests and verifies that they fail (Red phase).\n- **Step 3:** The agent writes implementation code to pass the tests (Green phase).\n- **Step 4:** The agent refactors code while preserving test passage.\n\n## 2. Automated Self-Correction Loops\nWhen an error occurs during execution, configure the agent to:\n1. Capture the exact stack trace and compiler errors.\n2. Analyze the error root cause rather than making blind code edits.\n3. Apply a targeted fix and re-run the verification command.\n4. Halt and ask for human review if three consecutive attempts fail.\n\n## 3. Human-in-the-Loop (HITL) Guardrails\n- Require explicit human approval before running destructive terminal commands (e.g., `rm -rf`, database migrations, API key deployments).\n- Set file write permissions restricted strictly to specific project modules.\n\n## 4. Sub-Agent Delegation\nWhen working on massive codebases, the primary agent can spawn specialized sub-agents (e.g., a database schema agent, a UI component agent, and a doc generator) to work in parallel.",
+        "ar": "# تقنيات متقدمة: التصحيح الذاتي، التطوير الموجه بالاختبارات، وقواعد الأمان\n\nلبناء برمجيات جاهزة للإنتاج (Production-Grade) باستخدام وكلاء الذكاء الاصطناعي، يجب دمج تقنيات متقدمة في دورة التطوير البرمجي.\n\n## 1. البرمجة التوكيلية الموجهة بالاختبارات (TDAC)\n- **الخطوة 1:** يكتب الوكيل اختبارات الوحدة والتكامل بناءً على متطلبات المهمة.\n- **الخطوة 2:** يشغل الوكيل الاختبارات ويتأكد من فشلها أولاً (مرحلة Red).\n- **الخطوة 3:** يكتب الوكيل الكود البرمجي الفعلي حتى تنجح الاختبارات (مرحلة Green).\n- **الخطوة 4:** يعيد الوكيل تحسين الكود (Refactoring) مع الحفاظ على نجاح الاختبارات.\n\n## 2. حلقات التصحيح الذاتي التلقائية (Self-Correction Loops)\nعند حدوث خطأ أثناء التنفيذ، يُوجّه الوكيل لـ:\n1. التقاط سجل الأخطاء (Stack Trace) ورسائل المجمّع بدقة.\n2. تحليل السبب الجذر للخطأ (Root Cause) بدلاً من التعديل العشوائي.\n3. تطبيق إصلاح موجه وإعادة تشغيل أمر التحقق.\n4. التوقف وطلب التدخل البشري إذا فشلت 3 محاولات متتالية.\n\n## 3. حواجز الحماية والتدخل البشري (Human-in-the-Loop)\n- اشتراط موافقة العنصر البشري قبل تشغيل الأوامر الحساسة (مثل `rm -rf` أو تعديلات قواعد البيانات الحية أو نشر المفاتيح السرية).\n- تحديد صلاحيات تعديل الملفات واقتصارها على مجلد التطوير الحالي.\n\n## 4. تفويض الوكلاء الفرعيين (Sub-Agent Delegation)\nفي المشاريع الضخمة، يمكن للوكيل الرئيسي إنشاء وكلاء فرعيين متخصصين (مثل: وكيل لقواعد البيانات، ووكيل للواجهات، ووكيل للتوثيق) للعمل بالتوازي."
+      },
+      "points": 10
+    },
+    {
+      "id": "quiz-1",
+      "title": {
+        "en": "AI Agentic Coding Comprehensive Quiz",
+        "ar": "اختبار البرمجة مع وكلاء الذكاء الاصطناعي الشامل"
+      },
+      "type": "quiz",
+      "points": 50,
+      "passThreshold": 0.7,
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": {
+            "en": "What is the primary difference between traditional code completion (Copilot) and an AI Coding Agent?",
+            "ar": "ما هو الفرق الرئيسي بين الإكمال التلقائي للكود (Copilot) ووكيل البرمجة بالذكاء الاصطناعي؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Copilot can execute terminal commands, while Agents only complete text.",
+              "Agents can reason, plan, use tools, and modify multiple files autonomously.",
+              "Copilot requires a GPU, while Agents run on a CPU.",
+              "There is no difference between them."
+            ],
+            "ar": [
+              "Copilot يمكنه تنفيذ أوامر الطرفية بينما الوكلاء يكملون النصوص فقط.",
+              "الوكلاء يمكنهم التفكير والتخطيط واستخدام الأدوات وتعديل ملفات متعددة باستقلالية.",
+              "Copilot يتطلب كرت شاشة بينما الوكلاء يعملون على المعالج.",
+              "لا يوجد أي فرق بينهما."
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q2",
+          "questionText": {
+            "en": "In Context Engineering for AI Agents, what is the main risk of feeding too much irrelevant code into the context window?",
+            "ar": "في هندسة السياق لوكلاء الذكاء الاصطناعي، ما هو الخطر الرئيسي لتزويد نافذة السياق بالكثير من الكود غير المهم؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "It accelerates execution speed.",
+              "It pollutes the context window, leading to hallucinations and incorrect decisions.",
+              "It automatically deletes unused files.",
+              "It bypasses system permission checks."
+            ],
+            "ar": [
+              "تسريع عملية التنفيذ.",
+              "تلوث السياق وتشتيت الوكيل مما يسبب الهلوسة والقرارات الخاطئة.",
+              "حذف الملفات غير المستخدمة تلقائياً.",
+              "تجاوز الفحص الأمني للصلاحيات."
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q3",
+          "questionText": {
+            "en": "What is the primary purpose of files like `AGENTS.md` or `.cursorrules` in agentic coding environments?",
+            "ar": "ما هو الهدف الرئيسي من ملفات مثل `AGENTS.md` أو `.cursorrules` في بيئات البرمجة التوكيلية؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "To store compiled binary files.",
+              "To serve as persistent directives defining agent rules, roles, and project standards.",
+              "To speed up the internet connection.",
+              "To encrypt database passwords."
+            ],
+            "ar": [
+              "تخزين الملفات الثنائية المجمعة.",
+              "عمل توجيهات دائمة تحدد قواعد الوكيل ودوره ومعايير المشروع.",
+              "تسريع الاتصال بالإنترنت.",
+              "تشفير كلمات سر قواعد البيانات."
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q4",
+          "questionText": {
+            "en": "What is the primary responsibility of the Planner Agent in a multi-agent architecture?",
+            "ar": "ما هي المسؤولية الرئيسية للوكيل المخطط (Planner Agent) في بنية متعددي الوكلاء؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Executing shell scripts directly.",
+              "Analyzing requirements and creating a structured implementation plan without editing code.",
+              "Critiquing edge cases and security vulnerabilities.",
+              "Creating final git commits."
+            ],
+            "ar": [
+              "تنفيذ أوامر الطرفية مباشرة.",
+              "تحليل المتطلبات وإنشاء خطة تنفيذ تفصيلية دون تعديل الكود.",
+              "نقد الحالات الخاصة والثغرات الأمنية.",
+              "إنشاء التزامات Git النهائية."
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q5",
+          "questionText": {
+            "en": "Why is a Critic Agent introduced immediately after the Planner Agent?",
+            "ar": "لماذا يتم وضع وكيل ناقد (Critic Agent) مباشرة بعد الوكيل المخطط؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "To convert Markdown files into PDF format.",
+              "To review the proposed plan for vulnerabilities, logic bugs, and edge cases before execution.",
+              "To write frontend CSS styles.",
+              "To deploy code to the production server."
+            ],
+            "ar": [
+              "لتحويل ملفات الماركداون إلى صيغة PDF.",
+              "لمراجعة الخطة المقترحة وكشف الثغرات والأخطاء المنطقية والحالات الخاصة قبل التنفيذ.",
+              "لكتابة تنسيقات CSS للواجهة.",
+              "لنشر الكود على خادم الإنتاج."
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q6",
+          "questionText": {
+            "en": "What does the Plan Extractor/Optimizer Agent do in the multi-agent pipeline?",
+            "ar": "ما الذي يقوم به وكيل استخراج أفضل خطة / المحسن في سلسلة الوكلاء المتعددة؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Combines the initial plan and critic feedback into a clean, deterministic execution roadmap.",
+              "Deletes all project files.",
+              "Generates audio instructions for developers.",
+              "Compiles C++ code."
+            ],
+            "ar": [
+              "دمج الخطة الأولية مع ملاحظات الناقد لإنشاء خارطة طريق تنفيذية نهائية ومثالية.",
+              "حذف جميع ملفات المشروع.",
+              "توليد تعليمات صوتية للمطورين.",
+              "تجميع كود C++."
+            ]
+          },
+          "correctAnswerIndex": 0
+        },
+        {
+          "questionId": "q7",
+          "questionText": {
+            "en": "What is the main role of the Executor Agent?",
+            "ar": "ما هو الدور الرئيسي للوكيل المنفذ (Executor Agent)؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Planning project architecture strategy.",
+              "Critiquing architectural decisions.",
+              "Executing the finalized plan step-by-step, modifying files, and running test suites.",
+              "Invoicing clients."
+            ],
+            "ar": [
+              "تخطيط استراتيجية مشروع البرمجيات.",
+              "نقد القرارات الهندسية.",
+              "تنفيذ الخطة النهائية خطوة بخطوة، وتعديل الملفات، وتشغيل الاختبارات.",
+              "إرسال الفواتير للعملاء."
+            ]
+          },
+          "correctAnswerIndex": 2
+        },
+        {
+          "questionId": "q8",
+          "questionText": {
+            "en": "In Test-Driven Agentic Coding (TDAC), what step must the agent perform BEFORE writing implementation code?",
+            "ar": "في البرمجة التوكيلية الموجهة بالاختبارات (TDAC)، ما هي الخطوة التي يجب أن يقوم بها الوكيل قبل كتابة الكود الفعلي؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Write failing tests that validate the required functionality.",
+              "Deploy code directly to production.",
+              "Delete existing unit tests.",
+              "Restart the operating system."
+            ],
+            "ar": [
+              "كتابة اختبارات تفشل في البداية وتتحقق من الوظيفة المطلوبة.",
+              "نشر الكود في بيئة الإنتاج المباشرة.",
+              "حذف الاختبارات الحالية.",
+              "إعادة تشغيل نظام التشغيل."
+            ]
+          },
+          "correctAnswerIndex": 0
+        },
+        {
+          "questionId": "q9",
+          "questionText": {
+            "en": "What should an AI agent do when a build or test command fails during a self-correction loop?",
+            "ar": "ماذا يجب أن يفعل وكيل الذكاء الاصطناعي عندما يفشل أمر البناء أو الاختبار أثناء حلقة التصحيح الذاتي؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Ignore the error and mark the task as complete.",
+              "Capture error logs, analyze the root cause, apply a targeted fix, and re-test.",
+              "Delete the test file so that it appears passed.",
+              "Immediately rewrite the entire codebase."
+            ],
+            "ar": [
+              "تجاهل الخطأ واعتبار المهمة مكتملة.",
+              "التقاط سجل الخطأ، وتحليل السبب الجذر، وتطبيق إصلاح دقيق، وإعادة الاختبار.",
+              "حذف ملف الاختبار ليظهر كأنه نجح.",
+              "إعادة كتابة المشروع بالكامل فوراً."
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q10",
+          "questionText": {
+            "en": "What is a fundamental Human-in-the-Loop (HITL) safety rule for autonomous coding agents?",
+            "ar": "ما هي قاعدة الأمان الأساسية الخاصة بالتدخل البشري (HITL) عند التعامل مع وكلاء البرمجة المستقلين؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Allow the agent to run all destructive system commands without prompt.",
+              "Require human approval before executing destructive terminal commands or applying critical schema changes.",
+              "Never allow the agent to read source code files.",
+              "Disable all logging and error output."
+            ],
+            "ar": [
+              "السماح للوكيل بتشغيل جميع الأوامر التدميرية دون إذن.",
+              "اشتراط موافقة بشرية قبل تنفيذ الأوامر التدميرية أو تغيير مخططات قاعدة البيانات الحساسة.",
+              "منع الوكيل نهائياً من قراءة الكود المصدري.",
+              "تعطيل جميع السجلات ومخرجات الأخطاء."
+            ]
+          },
+          "correctAnswerIndex": 1
+        }
+      ]
+    }
+  ]
+}
