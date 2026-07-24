@@ -15,18 +15,18 @@
     "icon": "🧠"
   },
   {
-    "id": "computer-architecture",
+    "id": "llm-prompt-engineering",
     "title": {
-      "en": "Computer Architecture Fundamentals",
-      "ar": "أساسيات هندسة الحاسوب"
+      "en": "Working with LLM models",
+      "ar": "التعامل مع نماذج الLLM"
     },
     "description": {
-      "en": "Understand how computers work from the ground up — from logic gates to CPU design and memory hierarchy.",
-      "ar": "افهم كيفية عمل الحواسيب من الأساس — من البوابات المنطقية إلى تصميم وحدة المعالجة المركزية والتسلسل الهرمي للذاكرة."
+      "en": "Mastering LLMs & Prompt Engineering",
+      "ar": "إتقان التعامل مع نماذج اللغة الضخمة وهندسة الأوامر"
     },
-    "moduleFile": "computer-architecture.json",
-    "totalLessons": 6,
-    "totalPoints": 30,
+    "moduleFile": "llm-prompt-engineering.json",
+    "totalLessons": 5,
+    "totalPoints": 50,
     "icon": "💻"
   }
 ]
