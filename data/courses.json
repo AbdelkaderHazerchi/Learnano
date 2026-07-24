@@ -1,17 +1,17 @@
 [
   {
-    "id": "neural-networks-101",
+    "id": "ai-agentic-coding",
     "title": {
-      "en": "Neural Networks: From Basics to Practice",
-      "ar": "الشبكات العصبية: من الأساسيات إلى التطبيق"
+      "en": "AI Agentic Coding & Development",
+      "ar": "البرمجة مع وكلاء الذكاء الاصطناعي"
     },
     "description": {
-      "en": "Explore the foundations of digital logic, circuit design, and computational thinking. Perfect for beginners in engineering and computer science.",
-      "ar": "استكشف أساسيات المنطق الرقمي وتصميم الدوائر والتفكير الحاسوبي. مثالي للمبتدئين في الهندسة وعلوم الحاسوب."
+      "en": "Learn how to properly interact with AI agents.",
+      "ar": "تعلم كيفية التعامل الصحيح مع وكلاء الذكاء الاصطناعي."
     },
-    "moduleFile": "neural-networks-101.json",
-    "totalLessons": 8,
-    "totalPoints": 35,
+    "moduleFile": "ai-agentic-coding.json",
+    "totalLessons": 5,
+    "totalPoints": 50,
     "icon": "🧠"
   },
   {
