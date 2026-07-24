@@ -1,0 +1,201 @@
+{
+  "courseId": "llm-prompt-engineering",
+  "courseTitle": {
+    "en": "Mastering LLMs & Prompt Engineering",
+    "ar": "إتقان التعامل مع نماذج اللغة الضخمة وهندسة الأوامر"
+  },
+  "items": [
+    {
+      "id": "lesson-1",
+      "title": {
+        "en": "Introduction to LLMs and Core Prompting Concepts",
+        "ar": "مقدمة في النماذج اللغوية والمفاهيم الأساسية للبرومبت"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Introduction to LLMs & Core Prompting\n\nLarge Language Models (LLMs) like GPT-4 and Claude process natural language to generate context-aware responses. To get optimal results, understanding prompt structure is key.\n\n## Key Components of a Prompt\n- **Role/Persona:** Who the AI should act as (e.g., 'Senior Software Engineer').\n- **Task/Instruction:** Clear action statement.\n- **Context:** Background information necessary for accuracy.\n- **Format:** Expected output structure (Markdown, JSON, Bullet points).\n\n## Example\n> **Bad:** Write a summary of AI.\n> **Good:** As an expert tech writer, write a 3-bullet-point summary of Generative AI for a high school student. Keep it under 50 words.\n\n---\n### 💡 Practice Challenge\nRewrite this prompt to be more specific: *'Help me fix my code.'* Define a role, the language, and the output format you expect.",
+        "ar": "# مقدمة في النماذج اللغوية والمفاهيم الأساسية\n\nتعمل نماذج اللغة الضخمة (LLMs) مثل GPT-4 و Claude على معالجة اللغة الطبيعية لتوليد إجابات دقيقة حسب السياق. للحصول على أفضل النتائج، يجب فهم مكونات الأمر (Prompt).\n\n## المكونات الأساسية للبرومبت الممتاز\n- **الدور (Role):** تحديد شخصية النموذج (مثال: 'خبير برمجة Python').\n- **المهمة (Task):** الفعل أو الطلب المباشر وبوضوح.\n- **السياق (Context):** الخلفية والمعلومات المساعدة.\n- **صيغة المخرجات (Format):** الشكل المطلوب (جدول، نقاط، JSON).\n\n## مثال\n> **ضعيف:** اكتب لي ملخصاً عن الذكاء الاصطناعي.\n> **ممتاز:** بصفتك كاتباً تقنياً، اكتب ملخصاً من 3 نقاط عن الذكاء الاصطناعي التوليدي لطلاب الثانوية. اجعل الطول أقل من 50 كلمة.\n\n---\n### 💡 تمرين عملي\nقم بإعادة صياغة هذا البرومبت ليكون أكثر دقة: *'ساعدني في إصلاح الكود'* — حدد لغة البرمجة، دور النموذج، وشكل الإجابة المطلوب."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-2",
+      "title": {
+        "en": "Prompting Techniques: Zero-Shot, Few-Shot & Chain-of-Thought",
+        "ar": "تقنيات التوجيه: Zero-Shot و Few-Shot وسلسلة الأفكار"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Advanced Prompting Techniques\n\nDifferent tasks require different reasoning prompting strategies.\n\n## 1. Zero-Shot Prompting\nAsking the model to complete a task directly without examples.\n*Example:* 'Classify the sentiment: I love sunny days!'\n\n## 2. Few-Shot Prompting\nProviding a few examples (Input -> Output) to guide the model's pattern recognition.\n*Example:*\n- Apple -> Fruit\n- Carrot -> Vegetable\n- Salmon -> ?\n\n## 3. Chain-of-Thought (CoT)\nForcing the model to think step-by-step before outputting the final answer. Essential for math and logic.\n*Key Phrase:* 'Let's think step by step.'\n\n---\n### 💡 Practice Challenge\nWrite a Few-Shot prompt to convert standard dates (e.g., '12/05/2026') into ISO standard format ('YYYY-MM-DD'). Include 2 examples.",
+        "ar": "# تقنيات التوجيه المتقدمة\n\nتتطلب المهام المختلفة استراتيجيات توجيه مختلفة لتحسين دقة التفكير منطقياً.\n\n## 1. التوجيه المباشر (Zero-Shot)\nطلب المهمة من النموذج مباشرة دون إعطائه أي أمثلة سابقة.\n*مثال:* 'صنف شعور هذه الجملة: أنا أحب الأيام المشمشة!'\n\n## 2. التوجيه بالأمثلة (Few-Shot)\nتزويد النموذج بأمثلة سابقة (مدخلات -> مخرجات) ليفهم النمط المطلوب بدقة.\n*مثال:*\n- تفاح -> فاكهة\n- جزر -> خضار\n- سلمان -> ?\n\n## 3. سلسلة الأفكار (Chain-of-Thought)\nإجبار النموذج على التفكير خطوة بخطوة قبل إعطاء النتيجة النهائية، وهي تقنية حاسمة للمهام الحسابية والمنطقية.\n*العبارة المفتاحية:* 'فكّر خطوة بخطوة قبل الإجابة.'\n\n---\n### 💡 تمرين عملي\nاكتب برومبت يعتمد على تقنية (Few-Shot) لتحويل التواريخ العادية (مثل '12/05/2026') إلى صيغة ISO العالمية ('YYYY-MM-DD'). ضمّن مثالين في البرومبت."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-3",
+      "title": {
+        "en": "Handling Complex Tasks with System Instructions & Constraints",
+        "ar": "إدارة المهام المعقدة باستخدام التعليمات المباشرة والقيود"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Structuring Complex Prompts\n\nWhen dealing with large tasks (e.g., code generation or content creation), strict boundary conditions prevent hallucinations and off-topic outputs.\n\n## Delimiters and Formatting\nUse triple quotes (`\"\"\"`), XML tags (`<context></context>`), or Markdown blocks to isolate inputs from instructions.\n\n## Key Constraints to Include\n- **Negative Constraints:** Specify what the model *should not* do (e.g., 'Do NOT use external libraries').\n- **Fallback Instructions:** Specify what to do when information is missing (e.g., 'If unknown, say I don't know').\n\n## Example Framework\n```markdown\n<role>Act as a Data Analyst</role>\n<instruction>Analyze the provided data below</instruction>\n<data>\"\"\" [Insert Data] \"\"\"</data>\n<constraint>Do not guess. Answer only based on the data provided.</constraint>\n```\n\n---\n### 💡 Practice Challenge\nDesign a structured prompt using XML tags that asks the AI to review a short essay, limiting negative feedback and ignoring spelling errors.",
+        "ar": "# هيكلة البرومبتات للمهام المعقدة\n\nعند التعامل مع مهام كبيرة (مثل إنشاء الأكواد أو كتابة التقارير المطولة)، تمنع القيود الصارمة النموذج من اختلاق معلومات غير صحيحة (Hallucinations).\n\n## استخدام الفواصل والوسوم (Delimiters)\nاستخدم علامات التنصيص الثلاثية (`\"\"\"`) أو وسوم XML (`<context></context>`) لفصل التعليمات عن البيانات.\n\n## قيود أساسية يجب إضافتها\n- **القيود السلبية (Negative Constraints):** تحديد ما *لا يجب* على النموذج فعله (مثال: 'لا تستخدم مكتبات خارجية').\n- **تعليمات الاحتياط (Fallback):** تحديد السلوك عند غياب المعلومة (مثال: 'إذا لم تجد الإجابة في النص، قل لا أعلم').\n\n## هيكل نموذجي\n```markdown\n<role>أنت محلل بيانات محترف</role>\n<instruction>حلل البيانات التالية واستخرج أهم النماذج</instruction>\n<data>\"\"\" [أدخل البيانات هنا] \"\"\"</data>\n<constraint>لا تخمن. أجب فقط بناءً على البيانات المرفقة.</constraint>\n```\n\n---\n### 💡 تمرين عملي\nقم بتصميم برومبت مهيكل باستخدام وسوم XML يطلب من الذكاء الاصطناعي مراجعة مقال قصير، مع وضع شرط بعدم تصحيح الأخطاء الإملائية وتحديد الملاحظات بالنقد الإيجابي فقط."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-4",
+      "title": {
+        "en": "Iterative Prompting, Debugging & Hallucination Control",
+        "ar": "التطوير التكراري للأوامر، معالجة الأخطاء والحد من الهلوسة"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Iterative Prompting & Debugging\n\nPrompt engineering is an iterative process. Rarely does a prompt work perfectly on the first try for complex tasks.\n\n## Debugging Steps\n1. **Analyze Output:** Identify where the AI failed (Did it ignore constraints? Misunderstand context?).\n2. **Refine Instructions:** Make fuzzy terms concrete (e.g., change 'short' to 'under 100 words').\n3. **Isolate Variables:** Test changes one at a time.\n\n## Preventing Hallucinations\n- Ground the model with reference text.\n- Explicitly allow the model to admit ignorance: 'If you cannot find the answer in the text, reply with: Information unavailable.'\n- Ask for citations or quote extraction.\n\n---\n### 💡 Practice Challenge\nYour model keeps hallucinating fake statistics about an attached article. Write a protective constraint sentence to add to your prompt to stop this.",
+        "ar": "# التطوير التكراري والحد من الهلوسة\n\nهندسة الأوامر هي عملية تكرارية متواصلة (Iterative Process)، وقلما ينجح البرومبت الأول في إنجاز المهام المعقدة بنسبة 100%.\n\n## خطوات معالجة أخطاء البرومبت (Debugging)\n1. **تحليل النتيجة:** تحديد موضع الخلل (هل أهمل النموذج القيود؟ أم فهم السياق بشكل خاطئ؟).\n2. **توضيح المصطلحات:** تحويل الكلمات المبهمة إلى شروط محددة (مثال: تغيير 'مقال قصير' إلى 'أقل من 100 كلمة').\n3. **عزل المتغيرات:** تجربة تعديل واحد في كل مرة لملاحظة الفرق.\n\n## تقنيات الحد من الهلوسة (Hallucinations)\n- ربط النموذج بمرجع نصي (Grounding).\n- إعطاء السماح الصريح بالإجابة بـ 'لا أعرف' عند عدم تأكده.\n- مطالبات الاقتباس: طلب اقتباس الجملة النصية التي اعتمد عليها قبل تقديم الإجابة.\n\n---\n### 💡 تمرين عملي\nإذا كان النموذج يقوم باختلاق إحصائيات وأرقام وهمية عند تلخيص مقال. اكتب جملة تقييد إضافية تضيفها للبرومبت لمنعه تماماً من اختلاق أي رقم."
+      },
+      "points": 10
+    },
+    {
+      "id": "lesson-5",
+      "title": {
+        "en": "Advanced LLM Parameters and Output Structuring (JSON/Code)",
+        "ar": "إعدادات النموذج المتقدمة وتنسيق المخرجات (JSON والأكواد)"
+      },
+      "type": "text",
+      "content": {
+        "en": "# Advanced Model Parameters & JSON Outputs\n\nUnderstanding model hyperparameters and output formats turns LLMs into reliable backend tools.\n\n## Key Parameters\n- **Temperature (0.0 to 1.0):** Lower (0.0 - 0.2) = deterministic and factual. Higher (0.7 - 1.0) = creative.\n- **Top_P:** Controls diversity via nucleus sampling.\n\n## Forcing JSON Outputs\nTo use LLMs in software applications, format outputs as structured JSON.\n\n### Best Practices for JSON Prompts:\n1. Specify key names and data types clearly.\n2. Provide a sample JSON schema.\n3. Demand raw JSON output (no Markdown formatting or wrap-up text).\n\n```json\n{\n  \"status\": \"success\",\n  \"sentiment\": \"positive\",\n  \"confidence_score\": 0.95\n}\n```\n\n---\n### 💡 Practice Challenge\nWrite a prompt that takes a user review and strictly returns a valid JSON object with keys: `product_id`, `sentiment`, and `summary`.",
+        "ar": "# المعاملات المتقدمة وإخراج البيانات بـ JSON\n\nفهم المعاملات البرمجية (Hyperparameters) للنموذج وتنسيق المخرجات يحوّل نماذج LLM إلى أدوات موثوقة يمكن ربطها بالتطبيقات.\n\n## أهم إعدادات النموذج\n- **درجة الحرارة (Temperature):** من 0.0 إلى 1.0. القيم المنخفضة (0.0 - 0.2) تجعل الإجابات دقيقة ومباشرة. القيم العالية (0.7 - 1.0) تجعلها إبداعية ومتنوعة.\n- **Top_P:** التحكم في تنوع الكلمات المعتمدة أثناء التوليد.\n\n## إجبار النموذج على إخراج صيغة JSON\nلربط النماذج ببرمجيات أخرى، يُفضل طلب المخرجات بصيغة JSON ناصعة.\n\n### أفضل الممارسات لاستخراج JSON:\n1. تحديد أسماء المفاتيح (Keys) وأنواع البيانات بشكل صريح.\n2. إرفاق نموذج هيلكي (Schema).\n3. التنبيه على النموذج بعدم كتابة أي نص مجاملة أو شرح، وإرجاع كود JSON فقط.\n\n```json\n{\n  \"status\": \"success\",\n  \"sentiment\": \"positive\",\n  \"confidence_score\": 0.95\n}\n```\n\n---\n### 💡 تمرين عملي\nاكتب برومبت يأخذ مراجعة زبون لمنتج معين، ويجبر الذكاء الاصطناعي على إرجاع كود JSON فقط يحتوي على المفاتيح التالية: `product_id` و `sentiment` و `summary`."
+      },
+      "points": 10
+    },
+    {
+      "id": "quiz-1",
+      "title": {
+        "en": "LLM & Prompt Engineering Assessment",
+        "ar": "اختبار هندسة الأوامر ونماذج الذكاء الاصطناعي"
+      },
+      "type": "quiz",
+      "points": 50,
+      "passThreshold": 0.7,
+      "questions": [
+        {
+          "questionId": "q1",
+          "questionText": {
+            "en": "Which prompting technique involves explicitly asking the model to think 'step-by-step'?",
+            "ar": "أي من تقنيات البرومبت تتضمن طلب التفكير 'خطوة بخطوة' من النموذج بشكل صريح؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Zero-Shot Prompting",
+              "Chain-of-Thought (CoT) Prompting",
+              "Few-Shot Prompting",
+              "Directional Stimulus Prompting"
+            ],
+            "ar": [
+              "التوجيه المباشر (Zero-Shot)",
+              "توجيه سلسلة الأفكار (Chain-of-Thought)",
+              "التوجيه بالأمثلة (Few-Shot)",
+              "التوجيه بالتحفيز الموجه"
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q2",
+          "questionText": {
+            "en": "What setting should you lower if you want the LLM to give fully deterministic, accurate, and non-creative outputs?",
+            "ar": "ما هو الإعداد الذي يجب خفضه إذا كنت تريد من النموذج إعطاء إجابات محددة، دقيقة، وغير إبداعية؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Top_K",
+              "Frequency Penalty",
+              "Temperature",
+              "Max Tokens"
+            ],
+            "ar": [
+              "Top_K",
+              "Frequency Penalty",
+              "درجة الحرارة (Temperature)",
+              "Max Tokens"
+            ]
+          },
+          "correctAnswerIndex": 2
+        },
+        {
+          "questionId": "q3",
+          "questionText": {
+            "en": "What is the primary benefit of Few-Shot prompting over Zero-Shot prompting?",
+            "ar": "ما هي الفائدة الرئيسية لتقنية Few-Shot مقارنة بـ Zero-Shot؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "It uses fewer tokens",
+              "It guides the output format and pattern via concrete examples",
+              "It speeds up execution time",
+              "It removes the need for context"
+            ],
+            "ar": [
+              "تستهلك توكنز (Tokens) أقل",
+              "تحدد شكل النمط والمخرجات بوضوح من خلال أمثلة سابقة",
+              "تزيد من سرعة استجابة السيرفر",
+              "تغني عن الحاجة لإضافة سياق"
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q4",
+          "questionText": {
+            "en": "How can you best mitigate model hallucinations when answering questions about a text?",
+            "ar": "كيف يمكنك تقليل 'الهلوسة' بشكل أفضل عند الإجابة على أسئلة متعلقة بنص معين؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "Increase the Temperature to 1.0",
+              "Explicitly instruct the model to state 'I don't know' if the answer isn't in the text",
+              "Ask the model to guess if unsure",
+              "Remove all constraints from the prompt"
+            ],
+            "ar": [
+              "رفع درجة الحرارة (Temperature) إلى 1.0",
+              "الطلب من النموذج صراحة أن يقول 'لا أعلم' إذا لم تكن الإجابة داخل النص",
+              "طلب التخمين من النموذج عند الشك",
+              "حذف جميع القيود من البرومبت"
+            ]
+          },
+          "correctAnswerIndex": 1
+        },
+        {
+          "questionId": "q5",
+          "questionText": {
+            "en": "Why are delimiters (like triple quotes or XML tags) recommended in prompts?",
+            "ar": "لماذا يُوصى باستخدام الفواصل (مثل علامات التنصيص الثلاثية أو وسوم XML) في البرومبت؟"
+          },
+          "type": "single",
+          "options": {
+            "en": [
+              "To lower API pricing",
+              "To clearly separate instructions from user-provided data/context",
+              "To force the model to respond in Spanish",
+              "To compress the prompt length"
+            ],
+            "ar": [
+              "لتخفيض تكلفة استخدام الـ API",
+              "لفصل التعليمات بوضوح عن البيانات والسياق المرفق",
+              "لإجبار النموذج على الرد بلغات معينة",
+              "لضغط حجم البرومبت"
+            ]
+          },
+          "correctAnswerIndex": 1
+        }
+      ]
+    }
+  ]
+}
